@@ -43,7 +43,6 @@ export default class Map {
 
   put(point, value) {
     if (isOverRange(point, this)) return new Error(`"${point.key}" is over range!`)
-    console.log('put')
     privates.get(this).raw[convert1DPoint(point, this)] = value
     console.log(privates.get(this).raw)
   }
