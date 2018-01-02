@@ -5,7 +5,7 @@ function isPositive(number) {
   return number >= 0
 }
 
-function convert1DPoint({ x, y, key }, { width }) {
+function convert1DPoint({ x, y }, { width }) {
   return either(y, isPositive)(0) * width + either(x, isPositive)(0)
 }
 
