@@ -1,0 +1,28 @@
+{
+  "name": "rogue-tools",
+  "version": "0.0.1",
+  "@std/esm": {
+    "esm": "all",
+    "cjs": true
+  },
+  "devDependencies": {
+    "@std/esm": "^0.18.0",
+    "eater": "^3.2.0",
+    "eater-b-reporter": "^0.2.0",
+    "espower-loader": "^1.2.2",
+    "fixpack": "^2.3.1",
+    "power-assert": "^1.4.4"
+  },
+  "eater": {
+    "glob": "src/**/test/**/*.js",
+    "require": ["./enable-power-assert", "@std/esm"],
+    "reporter": "eater-b-reporter"
+  },
+  "keywords": [],
+  "license": "WTFPL",
+  "main": "index.js",
+  "scripts": {
+    "fixpack": "fixpack",
+    "test": "eater"
+  }
+}
