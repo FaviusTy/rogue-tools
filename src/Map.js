@@ -37,6 +37,10 @@ export default class Map {
     return [...privates.get(this).row]
   }
 
+  fill(element) {
+    privates.get(this).row.fill(element)
+  }
+
   put(point, value) {
     if (isOverRange(point, this)) return new Error(`"${point.key}" is over range!`)
     console.log('put')

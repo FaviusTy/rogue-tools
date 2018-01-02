@@ -54,3 +54,9 @@ test('それは pick に与えたPointが空間の範囲外だった時にundefi
   assert(map.pick(overY) === undefined)
   assert(map.pick(overRange) === undefined)
 })
+
+test('それは fill によって引数の値をすべての空間要素に設定する', () => {
+  const map = new Map(5, 5)
+  map.fill('.')
+  map.row.forEach(v => assert(v === '.'))
+})
