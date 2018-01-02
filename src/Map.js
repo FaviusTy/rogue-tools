@@ -9,24 +9,38 @@ function isOverRange(point, map) {
   return point.x > map.width || point.y > map.height
 }
 
+const privates = new WeakMap()
+
 export default class Map {
   constructor(width = 0, height = 0) {
-    this.width = width
-    this.height = height
-    this._row = new Array(this.width * this.height)
+    privates.set(this, {
+      width: width,
+      height: height,
+      row: new Array(width * height),
+    })
+  }
+
+  get width() {
+    return privates.get(this).width
+  }
+
+  get height() {
+    return privates.get(this).height
   }
 
   get row() {
-    return [...this._row]
+    return [...privates.get(this).row]
   }
 
   put(point, value) {
     if (isOverRange(point, this)) return new Error(`"${point.key}" is over range!`)
-    this._row[convert1DPoint(point, this)] = value
+    console.log('put')
+    privates.get(this).row[convert1DPoint(point, this)] = value
+    console.log(privates.get(this).row)
   }
 
   pick(point) {
     if (isOverRange(point, this)) return
-    return this._row[convert1DPoint(point, this)]
+    return privates.get(this).row[convert1DPoint(point, this)]
   }
 }

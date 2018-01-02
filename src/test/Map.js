@@ -9,14 +9,27 @@ test('それは width と height の値から生成される', () => {
   assert(map instanceof Map)
 })
 
+test('それは width と height を参照できる', () => {
+  const map = new Map(60, 40)
+  assert(map.width === 60)
+  assert(map.height === 40)
+})
+
 test('それは row によって生成された空間を配列として返す', () => {
   const map = new Map(5, 5)
   assert(map.row.length === 5 * 5)
 })
 
-test('それが生成する空間配列の各要素の初期値はnullである', () => {
+test('それが row によって返す配列は非破壊的である', () => {
+  const map = new Map(2, 2)
+  const row = map.row
+  row[2] = true
+  assert(row[2] !== map.row[2])
+})
+
+test('それが生成する空間配列の各要素の初期値はundefinedである', () => {
   const map = new Map(5, 5)
-  map.row.forEach(v => v === null)
+  map.row.forEach(v => v === undefined)
 })
 
 test('それは put によって指定した座標に対応する要素を保持する', () => {
