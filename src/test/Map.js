@@ -17,25 +17,25 @@ test('それは width と height を参照できる', () => {
 
 test('それは row によって生成された空間を配列として返す', () => {
   const map = new Map(5, 5)
-  assert(map.row.length === 5 * 5)
+  assert(map.raw.length === 5 * 5)
 })
 
 test('それが row によって返す配列は非破壊的である', () => {
   const map = new Map(2, 2)
-  const row = map.row
-  row[2] = true
-  assert(row[2] !== map.row[2])
+  const raw = map.raw
+  raw[2] = true
+  assert(raw[2] !== map.raw[2])
 })
 
 test('それが生成する空間配列の各要素の初期値はundefinedである', () => {
   const map = new Map(5, 5)
-  map.row.forEach(v => v === undefined)
+  map.raw.forEach(v => v === undefined)
 })
 
 test('それは put によって指定した座標に対応する要素を保持する', () => {
   const map = new Map(5, 5)
   map.put(new Point(3, 3), true)
-  assert(map.row[18])
+  assert(map.raw[18])
 })
 
 test('それは pick によって与えられたPointに格納されている値を返す', () => {
@@ -58,5 +58,5 @@ test('それは pick に与えたPointが空間の範囲外だった時にundefi
 test('それは fill によって引数の値をすべての空間要素に設定する', () => {
   const map = new Map(5, 5)
   map.fill('.')
-  map.row.forEach(v => assert(v === '.'))
+  map.raw.forEach(v => assert(v === '.'))
 })

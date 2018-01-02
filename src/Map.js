@@ -21,7 +21,7 @@ export default class Map {
     privates.set(this, {
       width: width,
       height: height,
-      row: new Array(width * height),
+      raw: new Array(width * height),
     })
   }
 
@@ -33,23 +33,23 @@ export default class Map {
     return privates.get(this).height
   }
 
-  get row() {
-    return [...privates.get(this).row]
+  get raw() {
+    return [...privates.get(this).raw]
   }
 
   fill(element) {
-    privates.get(this).row.fill(element)
+    privates.get(this).raw.fill(element)
   }
 
   put(point, value) {
     if (isOverRange(point, this)) return new Error(`"${point.key}" is over range!`)
     console.log('put')
-    privates.get(this).row[convert1DPoint(point, this)] = value
-    console.log(privates.get(this).row)
+    privates.get(this).raw[convert1DPoint(point, this)] = value
+    console.log(privates.get(this).raw)
   }
 
   pick(point) {
     if (isOverRange(point, this)) return
-    return privates.get(this).row[convert1DPoint(point, this)]
+    return privates.get(this).raw[convert1DPoint(point, this)]
   }
 }
