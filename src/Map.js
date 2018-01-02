@@ -1,11 +1,16 @@
 import either from './utils/either'
 import Point from './Point'
 
+function isPositive(number) {
+  return number >= 0
+}
+
 function convert1DPoint({ x, y, key }, { width }) {
-  return either(y, y => y >= 0)(0) * width + x
+  return either(y, isPositive)(0) * width + either(x, isPositive)(0)
 }
 
 function isOverRange({ x, y }, { width, height }) {
+  if (x < 0 || y < 0) return false
   return x >= width || y >= height
 }
 
