@@ -1,12 +1,12 @@
 import either from './utils/either'
 import Point from './Point'
 
-function convert1DPoint(pointer, map) {
-  return either(pointer.y, y => y >= 0)(0) * map.width + pointer.x
+function convert1DPoint({ x, y, key }, { width }) {
+  return either(y, y => y >= 0)(0) * width + x
 }
 
-function isOverRange(point, map) {
-  return point.x > map.width || point.y > map.height
+function isOverRange({ x, y }, { width, height }) {
+  return x >= width || y >= height
 }
 
 const privates = new WeakMap()

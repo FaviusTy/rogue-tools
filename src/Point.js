@@ -2,7 +2,7 @@ const privates = new WeakMap()
 
 export default class Point {
   constructor(x = 0, y = 0) {
-    privates.set(this, { x: x, y: y })
+    privates.set(this, { x: x, y: y, key: `${x},${y}` })
   }
 
   get x() {
@@ -14,6 +14,6 @@ export default class Point {
   }
 
   get key() {
-    return `${this.x},${this.y}`
+    return privates.get(this).key
   }
 }
