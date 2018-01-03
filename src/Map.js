@@ -5,7 +5,7 @@ function isPositive(number) {
   return number >= 0
 }
 
-function convert1DPoint({ x, y }, { width }) {
+function convertRawIndex({ x, y }, { width }) {
   return either(y, isPositive)(0) * width + either(x, isPositive)(0)
 }
 
@@ -43,12 +43,12 @@ export default class Map {
 
   put(point, value) {
     if (isOverRange(point, this)) return new Error(`"${point.key}" is over range!`)
-    privates.get(this).raw[convert1DPoint(point, this)] = value
+    privates.get(this).raw[convertRawIndex(point, this)] = value
     console.log(privates.get(this).raw)
   }
 
   pick(point) {
     if (isOverRange(point, this)) return
-    return privates.get(this).raw[convert1DPoint(point, this)]
+    return privates.get(this).raw[convertRawIndex(point, this)]
   }
 }
