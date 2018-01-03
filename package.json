@@ -14,7 +14,7 @@
     "power-assert": "^1.4.4"
   },
   "eater": {
-    "glob": "src/**/test/**/*.js",
+    "glob": "src/**/test/*.js",
     "require": ["./enable-power-assert", "@std/esm"],
     "reporter": "eater-b-reporter"
   },
