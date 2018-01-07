@@ -87,3 +87,12 @@ test('それは clip によって指定した範囲の空間を新しいMapイ�
   const clipedMap = target.clip(new Point(1, 2), { width: 3, height: 2 })
   clipedMap.raw.forEach((element, index) => assert(element === index))
 })
+
+test('それは pickOut によって指定した Point の値を取り出す', () => {
+  const target = new Map(5, 5)
+  target.fill('*')
+  const pickOutPoint = new Point(3, 1)
+  const result = target.pickOut(pickOutPoint)
+  assert(result === '*')
+  assert(!target.pick(pickOutPoint))
+})

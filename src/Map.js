@@ -54,6 +54,13 @@ export default class Map {
     return privates.get(this).raw[convertRawIndex(point, this)]
   }
 
+  pickOut(point) {
+    if (this.isOverRange(point)) return
+    const result = this.pick(point)
+    this.put(point, undefined)
+    return result
+  }
+
   paste(point, map) {
     const pasteRect = rect(point, map.width, map.height)
     map.raw.forEach((element, index) => {
