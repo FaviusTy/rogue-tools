@@ -1,5 +1,6 @@
 import Runner from 'eater/runner'
 import assert from 'power-assert'
+import range from '../utils/range'
 import Point from '../Point'
 import Map from '../Map'
 const test = Runner.test
@@ -59,4 +60,30 @@ test('それは fill によって引数の値をすべての空間要素に設�
   const map = new Map(5, 5)
   map.fill('.')
   map.raw.forEach(v => assert(v === '.'))
+})
+
+test('それは paste に与えたMapインスタンスをPointを原点として自身の空間に上書きする', () => {
+  const target = new Map(5, 5)
+  const pasteMap = new Map(2, 2)
+  pasteMap.fill(true)
+  target.paste(new Point(1, 1), pasteMap)
+  console.log(target.raw)
+  range(2, 1).forEach(x => {
+    range(2, 1).forEach(y => {
+      assert(target.pick(new Point(x, y)))
+    })
+  })
+})
+
+test('それは clip によって指定した範囲の空間を新しいMapインスタンスとして返す', () => {
+  const target = new Map(5, 5)
+  let count = 0
+  range(2, 2).forEach(y => {
+    range(3, 1).forEach(x => {
+      target.put(new Point(x, y), count)
+      count++
+    })
+  })
+  const clipedMap = target.clip(new Point(1, 2), { width: 3, height: 2 })
+  clipedMap.raw.forEach((element, index) => assert(element === index))
 })

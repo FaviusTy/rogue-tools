@@ -1,4 +1,5 @@
 import either from './utils/either'
+import range from './utils/range'
 import Point from './Point'
 
 function isPositive(number) {
@@ -45,11 +46,30 @@ export default class Map {
   put(point, value) {
     if (this.isOverRange(point)) return new Error(`"${point.key}" is over range!`)
     privates.get(this).raw[convertRawIndex(point, this)] = value
-    console.log(privates.get(this).raw)
   }
 
   pick(point) {
     if (this.isOverRange(point)) return
     return privates.get(this).raw[convertRawIndex(point, this)]
+  }
+
+  paste(point, map) {
+    map.raw.forEach((element, index) => {
+      const heightDepth = Math.floor(index / map.width)
+      const putPoint = new Point(point.x + index - map.height * heightDepth, point.y + heightDepth)
+      if (this.isOverRange(putPoint)) return
+      privates.get(this).raw[convertRawIndex(putPoint, this)] = element
+    })
+  }
+
+  clip(point, size) {
+    if (this.isOverRange(point)) return
+    const result = new Map(size.width, size.height)
+    range(size.height, point.y).forEach((y, yIndex) => {
+      range(size.width, point.x).forEach((x, xIndex) => {
+        result.put(new Point(xIndex, yIndex), this.pick(new Point(x, y)))
+      })
+    })
+    return result
   }
 }
