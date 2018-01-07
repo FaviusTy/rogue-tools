@@ -44,9 +44,9 @@ export default class Map {
     privates.get(this).raw.fill(element)
   }
 
-  put(point, value) {
+  put(point, element) {
     if (this.isOverRange(point)) return new Error(`"${point.key}" is over range!`)
-    privates.get(this).raw[convertRawIndex(point, this)] = value
+    privates.get(this).raw[convertRawIndex(point, this)] = element
   }
 
   pick(point) {
