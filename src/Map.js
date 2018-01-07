@@ -55,11 +55,11 @@ export default class Map {
   }
 
   paste(point, map) {
+    const pasteRect = rect(point, map.width, map.height)
     map.raw.forEach((element, index) => {
-      const heightDepth = Math.floor(index / map.width)
-      const putPoint = new Point(point.x + index - map.height * heightDepth, point.y + heightDepth)
-      if (this.isOverRange(putPoint)) return
-      privates.get(this).raw[convertRawIndex(putPoint, this)] = element
+      const point = pasteRect[index]
+      if (this.isOverRange(point)) return
+      this.put(point, element)
     })
   }
 
