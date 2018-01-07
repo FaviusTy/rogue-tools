@@ -1,5 +1,6 @@
 import either from './utils/either'
 import range from './utils/range'
+import { rect } from './matrix'
 import Point from './Point'
 
 function isPositive(number) {
@@ -65,10 +66,9 @@ export default class Map {
   clip(point, size) {
     if (this.isOverRange(point)) return
     const result = new Map(size.width, size.height)
-    range(size.height, point.y).forEach((y, yIndex) => {
-      range(size.width, point.x).forEach((x, xIndex) => {
-        result.put(new Point(xIndex, yIndex), this.pick(new Point(x, y)))
-      })
+    const clipRect = rect(point, size.width, size.height)
+    rect(new Point(0, 0), size.width, size.height).forEach((point, index) => {
+      result.put(point, this.pick(clipRect[index]))
     })
     return result
   }
