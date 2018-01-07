@@ -2,8 +2,17 @@ import Runner from 'eater/runner'
 import assert from 'power-assert'
 import range from '../utils/range'
 import Point from '../Point'
-import { row, column, rect } from '../matrix'
+import { isMatrix, row, column, rect } from '../matrix'
 const test = Runner.test
+
+test('matrix とは各要素がPointだけで構成された配列である', () => {
+  assert(!isMatrix('notMatrix'))
+  assert(!isMatrix(['notMatrix']))
+  assert(!isMatrix(new Point(0, 0)))
+  assert(!isMatrix([new Point(0, 0), 'notMatrix', new Point(0, 2)]))
+  assert(isMatrix([]))
+  assert(isMatrix([new Point(0, 0)]))
+})
 
 test('それは row によって引数で指定した Point を基点として length 分だけの Array<Point> を返す', () => {
   const point = new Point(1, 2)
