@@ -1,0 +1,15 @@
+{
+  "name": "examples",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build:firstStep": "rollup src/firstStep.js --output.format iife --output.file game.js",
+    "opener": "opener ./index.html",
+    "firstStep": "run-s build:firstStep opener"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.2",
+    "opener": "^1.4.3",
+    "rollup": "^0.53.3"
+  }
+}
