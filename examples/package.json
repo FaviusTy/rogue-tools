@@ -4,12 +4,19 @@
   "description": "",
   "scripts": {
     "build:firstStep": "rollup src/firstStep.js --output.format iife --output.file game.js",
+    "build:wanderingPlayer": "rollup src/wanderingPlayer.js -c rollup.wanderingPlayer.js",
     "opener": "opener ./index.html",
-    "firstStep": "run-s build:firstStep opener"
+    "firstStep": "run-s build:firstStep opener",
+    "wanderingPlayer": "run-s build:wanderingPlayer opener"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.2",
     "opener": "^1.4.3",
-    "rollup": "^0.53.3"
+    "rollup": "^0.53.3",
+    "rollup-plugin-node-resolve": "^3.0.2"
+  },
+  "dependencies": {
+    "keycode-js": "^1.0.0",
+    "most": "^1.7.2"
   }
 }
