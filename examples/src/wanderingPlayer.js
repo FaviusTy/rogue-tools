@@ -13,6 +13,10 @@ const fontSize = 14
 const map = new Map(60, 30)
 map.fill('.')
 
+const renderCell = (charcter, point) => {
+  return ctx.fillText(charcter, (fontSize / 2 + 1) * point.x, fontSize * point.y)
+}
+
 function roop() {
   canvas.width = window.innerWidth * dpr
   canvas.height = window.innerHeight * dpr
@@ -20,8 +24,9 @@ function roop() {
   ctx.font = `${fontSize}px 'Courier New'`
   ctx.fillStyle = 'rgb(255, 255, 255)'
   rect(new Point(0, 0), map.width, map.height).forEach(point => {
-    ctx.fillText(map.pick(point), (fontSize / 2 + 1) * point.x, fontSize * point.y)
+    renderCell(map.pick(point), point)
   })
+  renderCell('@', new Point(10, 5))
   requestAnimationFrame(roop)
 }
 
