@@ -96,3 +96,5 @@ test('それは pickOut によって指定した Point の値を取り出す', (
   assert(result === '*')
   assert(!target.pick(pickOutPoint))
 })
+
+//TODO isOverrange!
