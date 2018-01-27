@@ -12,10 +12,10 @@ test('それは edges を与えて生成される', () => {
 
 test('それはメソッドに point を与えることで隣接している Point を生成する', () => {
   const point = new Point(1, 1)
-  assert(neighbors4.up(point).x === 0)
-  assert(neighbors4.down(point).x === 2)
-  assert(neighbors4.left(point).y === 0)
-  assert(neighbors4.right(point).y === 2)
+  assert(neighbors4.up(point).y === 0)
+  assert(neighbors4.down(point).y === 2)
+  assert(neighbors4.left(point).x === 0)
+  assert(neighbors4.right(point).x === 2)
 })
 
 test('それは edges に対応していないメソッドを使うと undefined を返す', () => {

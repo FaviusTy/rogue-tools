@@ -11,19 +11,19 @@ export default class Neighbors {
   }
 
   up(point) {
-    return new Point(point.x - 1, point.y)
-  }
-
-  down(point) {
-    return new Point(point.x + 1, point.y)
-  }
-
-  left(point) {
     return new Point(point.x, point.y - 1)
   }
 
-  right(point) {
+  down(point) {
     return new Point(point.x, point.y + 1)
+  }
+
+  left(point) {
+    return new Point(point.x - 1, point.y)
+  }
+
+  right(point) {
+    return new Point(point.x + 1, point.y)
   }
 
   upperLeft(point) {

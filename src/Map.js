@@ -36,7 +36,7 @@ export default class Map {
 
   isOverRange(point) {
     const { x, y } = point
-    if (x < 0 || y < 0) return false
+    if (x < 0 || y < 0) return true
     return x >= this.width || y >= this.height
   }
 

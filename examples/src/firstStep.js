@@ -17,7 +17,7 @@ function roop() {
   ctx.font = `${fontSize}px 'Courier New'`
   ctx.fillStyle = 'rgb(255, 255, 255)'
   rect(new Point(0, 0), map.width, map.height).forEach(point => {
-    ctx.fillText(map.pick(point), (fontSize / 2 + 1) * point.x, fontSize * point.y)
+    ctx.fillText(map.pick(point), (fontSize / 2 + 1) * point.x, fontSize * (point.y + 1))
   })
   requestAnimationFrame(roop)
 }
