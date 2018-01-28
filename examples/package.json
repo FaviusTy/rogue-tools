@@ -17,6 +17,7 @@
     "rollup-plugin-node-resolve": "^3.0.2"
   },
   "dependencies": {
+    "immer": "^0.8.5",
     "keycode-js": "^1.0.0",
     "most": "^1.7.2"
   }

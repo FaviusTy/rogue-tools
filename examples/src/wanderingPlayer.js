@@ -3,9 +3,10 @@ import Point from '../../src/Point'
 import Neighbors from '../../src/Neighbors'
 import { rect } from '../../src/matrix'
 import Map from '../../src/Map'
+import GameStates from './libs/GameStates'
 
 const neighbors4 = new Neighbors(4)
-const Game = { player: new Point(0, 0) }
+const Game = new GameStates({ player: new Point(0, 0) })
 
 const MovableCodes = ['h', 'j', 'k', 'l']
 
@@ -24,7 +25,7 @@ const keyup = fromEvent('keyup', document)
   .filter(e => MovableCodes.includes(e))
   .tap(e => console.log('keyup:', e))
   .map(e => {
-    const current = Game.player
+    const current = Game.state.player
     if (e === 'h') return neighbors4.left(current)
     if (e === 'j') return neighbors4.up(current)
     if (e === 'k') return neighbors4.down(current)
@@ -33,7 +34,9 @@ const keyup = fromEvent('keyup', document)
   .filter(nextPoint => !map.isOverRange(nextPoint))
   .tap(nextPoint => console.log('point', nextPoint.x, nextPoint.y))
   .observe(nextPoint => {
-    Game.player = nextPoint
+    Game.update(state => {
+      state.player = nextPoint
+    })
   })
 
 const renderCell = (charcter, point) => {
@@ -51,7 +54,7 @@ function roop() {
   rect(new Point(0, 0), map.width, map.height).forEach(point => {
     renderCell(map.pick(point), point)
   })
-  renderCell('@', Game.player)
+  renderCell('@', Game.state.player)
   requestAnimationFrame(roop)
 }
 
