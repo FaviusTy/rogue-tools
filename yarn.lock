@@ -33,6 +33,10 @@ array-find@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/array-find/-/array-find-1.0.0.tgz#6c8e286d11ed768327f8e62ecee87353ca3e78b8"
 
+babylon@^6.15.0:
+  version "6.18.0"
+  resolved "https://registry.yarnpkg.com/babylon/-/babylon-6.18.0.tgz#af2f3b88fa6f5c1e4c634d1a0f8eac4f55b395e3"
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"
@@ -345,6 +349,17 @@ fixpack@^2.3.1:
     extend-object "^1.0.0"
     rc "^0.6.0"
 
+flow-bin@^0.76.0:
+  version "0.76.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.76.0.tgz#eb00036991c3abc106743fcbc7ee321f02aa4faa"
+
+flow-remove-types@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/flow-remove-types/-/flow-remove-types-1.2.3.tgz#6131aefc7da43364bb8b479758c9dec7735d1a18"
+  dependencies:
+    babylon "^6.15.0"
+    vlq "^0.2.1"
+
 foreach@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/foreach/-/foreach-2.0.5.tgz#0bee005018aeb260d0a3af3ae658dd0136ec1b99"
@@ -607,6 +622,10 @@ universal-deep-strict-equal@^1.2.1:
     array-filter "^1.0.0"
     indexof "0.0.1"
     object-keys "^1.0.0"
+
+vlq@^0.2.1:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/vlq/-/vlq-0.2.3.tgz#8f3e4328cf63b1540c0d67e1b2778386f8975b26"
 
 wordwrap@~1.0.0:
   version "1.0.0"

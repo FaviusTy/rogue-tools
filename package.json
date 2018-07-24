@@ -8,13 +8,16 @@
     "esm": "^3.0.72",
     "espower-loader": "^1.2.2",
     "fixpack": "^2.3.1",
+    "flow-bin": "^0.76.0",
+    "flow-remove-types": "^1.2.3",
     "power-assert": "^1.6.0"
   },
   "eater": {
     "glob": "src/**/test/*.js",
     "require": [
       "./enable-power-assert",
-      "esm"
+      "esm",
+      "flow-remove-types/register"
     ],
     "reporter": "eater-b-reporter"
   },
@@ -26,6 +29,7 @@
   "license": "WTFPL",
   "main": "index.js",
   "scripts": {
+    "build": "flow-remove-types src/ -d lib/",
     "fixpack": "fixpack",
     "test": "eater"
   }
