@@ -2,6 +2,7 @@
 
 import either from './utils/either'
 import range from './utils/range'
+import PrivateFields from './utils/PrivateFields'
 import { rect } from './matrix'
 import Point from './Point'
 
@@ -24,7 +25,7 @@ function convertRawIndex({ x, y }: Point, { width }: Map): number {
   return either(y, isPositive)(0) * width + either(x, isPositive)(0)
 }
 
-const privates: WeakMap<Map, Privates> = new WeakMap()
+const privates = new PrivateFields()
 
 export default class Map {
   constructor(width: number = 0, height: number = 0) {
@@ -36,20 +37,15 @@ export default class Map {
   }
 
   get width(): number {
-    const fields = privates.get(this)
-    if (fields) return fields.width
-    throw new Error('nothing privates!')
+    return privates.get(this).width
   }
 
   get height(): number {
-    const fields = privates.get(this)
-    if (fields) return fields.height
-    throw new Error('nothing privates!')
+    return privates.get(this).height
   }
 
   get raw(): Array<number> {
-    const fields = privates.get(this)
-    return fields ? [...fields.raw] : []
+    return [...either(privates.get(this).raw)([])]
   }
 
   isOverRange(point: Point) {
@@ -59,22 +55,17 @@ export default class Map {
   }
 
   fill(element: any) {
-    const fields = privates.get(this)
-    if (fields) fields.raw.fill(element)
+    privates.get(this).raw.fill(element)
   }
 
   put(point: Point, element: any) {
     if (this.isOverRange(point)) return
-    const fields = privates.get(this)
-    if (!fields) throw new Error('nothing privates!')
-    fields.raw[convertRawIndex(point, this)] = element
+    privates.get(this).raw[convertRawIndex(point, this)] = element
   }
 
   pick(point: Point) {
     if (this.isOverRange(point)) return
-    const fields = privates.get(this)
-    if (!fields) throw new Error('nothing privates!')
-    return fields.raw[convertRawIndex(point, this)]
+    return privates.get(this).raw[convertRawIndex(point, this)]
   }
 
   pickOut(point: Point) {

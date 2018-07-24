@@ -1,19 +1,21 @@
-const privates = new WeakMap()
+// @flow
+import PrivateFields from './utils/PrivateFields'
+const privates = new PrivateFields()
 
 export default class Point {
-  constructor(x = 0, y = 0) {
+  constructor(x: number = 0, y: number = 0) {
     privates.set(this, { x: x, y: y, key: `${x},${y}` })
   }
 
-  get x() {
+  get x(): number {
     return privates.get(this).x
   }
 
-  get y() {
+  get y(): number {
     return privates.get(this).y
   }
 
-  get key() {
+  get key(): string {
     return privates.get(this).key
   }
 }
