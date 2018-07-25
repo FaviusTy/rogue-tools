@@ -1,52 +1,58 @@
-import Point from './Point'
+// @flow
 
-const privates = new WeakMap()
+import Point from './Point'
+import PriveteFields from './utils/PrivateFields'
+
+type Edges = 4
+
+const privates = new PriveteFields()
+
 export default class Neighbors {
-  constructor(edges = 4) {
+  constructor(edges: Edges = 4) {
     privates.set(this, { edges: edges })
   }
 
-  get edges() {
+  get edges(): Edges {
     return privates.get(this).edges
   }
 
-  up(point) {
+  up(point: Point) {
     return new Point(point.x, point.y - 1)
   }
 
-  down(point) {
+  down(point: Point) {
     return new Point(point.x, point.y + 1)
   }
 
-  left(point) {
+  left(point: Point) {
     return new Point(point.x - 1, point.y)
   }
 
-  right(point) {
+  right(point: Point) {
     return new Point(point.x + 1, point.y)
   }
 
-  upperLeft(point) {
+  upperLeft(point: Point) {
     if (this.edges === 4) return undefined
     if (this.edges === 8) return this.left(this.up(point))
   }
 
-  upperRight(point) {
+  upperRight(point: Point) {
     if (this.edges === 4) return undefined
     if (this.edges === 8) return this.right(this.up(point))
   }
 
-  bottomLeft(point) {
+  bottomLeft(point: Point) {
     if (this.edges === 4) return undefined
     if (this.edges === 8) return this.left(this.down(point))
   }
 
-  bottomRight(point) {
+  bottomRight(point: Point) {
     if (this.edges === 4) return undefined
     if (this.edges === 8) return this.right(this.down(point))
   }
 
-  arounds(point) {
+  arounds(point: Point): Array<?Point> {
     return [
       this.up(point),
       this.upperRight(point),
