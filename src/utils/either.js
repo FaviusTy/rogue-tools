@@ -1,3 +1,7 @@
-export default function either(target, test = target => target) {
-  return orElse => (test(target) ? target : orElse)
+// @flow
+
+type Test = (target: any) => boolean
+
+export default function either(target: any, test: Test = target => target) {
+  return (orElse: any) => (test(target) ? target : orElse)
 }
