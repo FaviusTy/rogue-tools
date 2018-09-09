@@ -15,7 +15,7 @@ export function rect(point: Point, width: number = 1, height: number = 1) {
   return range(height, point.y).reduce((res, y) => res.concat(...range(width, point.x).map(x => new Point(x, y))), [])
 }
 
-export function isMatrix(target: any) {
+export function isMatrix(target: Array<Point>) {
   if (!Array.isArray(target)) return false
   if (target.length === 0) return true
   if (target.filter(point => !(point instanceof Point)).length !== 0) return false
