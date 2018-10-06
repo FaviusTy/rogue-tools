@@ -15,6 +15,16 @@ export function rect(point: Point, width: number = 1, height: number = 1) {
   return range(height, point.y).reduce((res, y) => res.concat(...range(width, point.x).map(x => new Point(x, y))), [])
 }
 
+export function line(start: Point, end: Point) {
+  const { x, y } = start.sub(end).abs
+  const diagonal_distance = x > y ? x : y
+  return range(diagonal_distance + 1)
+    .map((_, index) => (diagonal_distance === 0 ? 0 : index / diagonal_distance))
+    .map(t => {
+      return Point.lerp(start, end, t).round
+    })
+}
+
 export function isMatrix(target: Array<Point>) {
   if (!Array.isArray(target)) return false
   if (target.length === 0) return true

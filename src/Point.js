@@ -1,11 +1,16 @@
 // @flow
 import PrivateFields from './utils/PrivateFields'
-const { abs } = Math
+import lerp from './utils/lerp'
+const { abs, round } = Math
 const privates = new PrivateFields()
 
 export default class Point {
   constructor(x: number = 0, y: number = 0) {
     privates.set(this, { x: x, y: y, key: `${x},${y}` })
+  }
+
+  static lerp(start: Point, end: Point, t: number) {
+    return new Point(lerp(start.x, end.x, t), lerp(start.y, end.y, t))
   }
 
   get x(): number {
@@ -22,6 +27,10 @@ export default class Point {
 
   get abs() {
     return new Point(abs(this.x), abs(this.y))
+  }
+
+  get round() {
+    return new Point(round(this.x), round(this.y))
   }
 
   add(point: Point): Point {
