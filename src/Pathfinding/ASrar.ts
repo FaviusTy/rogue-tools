@@ -64,15 +64,14 @@ class AStar {
    */
   findPath(start: Point, end: Point, grid: any[]) {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
-      return nodeA.f_cost - nodeB.f_cost;
+      return nodeA.cost - nodeB.cost;
     });
     const startNode: Node = grid.getNodeAt(start.x, start.y);
     const endNode: Node = grid.getNodeAt(end.x, end.y);
-    const { abs, SQRT2 } = Math;
+    const { SQRT2 } = Math;
 
     // set the `g` and `f` value of the start node to be 0
     startNode.g_cost = 0;
-    startNode.f_cost = 0;
 
     // push the start node into the open list
     openList.push(startNode);
@@ -110,7 +109,6 @@ class AStar {
           neighbor.h_cost =
             neighbor.h_cost ||
             this.weight * this.heuristic(neighbor.point.sub(end).abs);
-          neighbor.f_cost = neighbor.g_cost + neighbor.h_cost;
           neighbor.parent = node;
 
           if (!neighbor.opened) {

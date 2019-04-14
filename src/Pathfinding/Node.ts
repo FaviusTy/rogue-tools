@@ -8,14 +8,13 @@ export type NodeState = typeof NONE | typeof OPEN | typeof CLOSE;
 
 export default class Node {
   point: Point;
-  f_cost: number;
   g_cost: number;
   h_cost: number;
   state: NodeState;
+  parent?: Node;
 
   constructor(point: Point) {
     this.point = point;
-    this.f_cost = 0; // TODO: 整理する
     this.g_cost = 0;
     this.h_cost = 0;
     this.state = OPEN;
@@ -27,6 +26,10 @@ export default class Node {
 
   get y() {
     return this.point.y;
+  }
+
+  get cost() {
+    return this.g_cost + this.h_cost;
   }
 
   open() {
