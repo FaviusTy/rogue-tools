@@ -81,11 +81,11 @@ export default class Map<E> {
     });
   }
 
-  clip(point: Point, size: Size) {
+  clip(point: Point, { width, height }: Size) {
     if (this.isOverRange(point)) return;
-    const result = new Map(size.width, size.height);
-    const clipRect = rect(point, size.width, size.height);
-    rect(new Point(0, 0), size.width, size.height).forEach((point, index) => {
+    const result = new Map<E>(width, height);
+    const clipRect = rect(point, width, height);
+    rect(new Point(0, 0), width, height).forEach((point, index) => {
       result.put(point, this.pick(clipRect[index]));
     });
     return result;
