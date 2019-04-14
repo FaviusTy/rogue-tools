@@ -6,7 +6,7 @@ export const CLOSE = 2 as const;
 
 export type NodeState = typeof NONE | typeof OPEN | typeof CLOSE;
 
-export default class Path {
+export default class Node {
   point: Point;
   f_cost: number;
   g_cost: number;
