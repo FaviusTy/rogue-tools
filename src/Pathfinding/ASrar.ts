@@ -5,6 +5,7 @@ import {
   OnlyWhenNoObstacles,
   IfAtMostOneObstacle
 } from "./DiagonalMovement";
+import backtrace from "./utils/backtrack";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
 import Point from "../Point";
 import Node from "./Node";
@@ -85,7 +86,7 @@ class AStar {
 
       // if reached the end position, construct the path and return it
       if (node === endNode) {
-        return Util.backtrace(endNode);
+        return backtrace(endNode);
       }
 
       // get neigbours of the current node
