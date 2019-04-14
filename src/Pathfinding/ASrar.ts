@@ -18,9 +18,9 @@ type Options = {
   weight?: number;
 };
 
-class AStar {
-  allowDiagonal: boolean | undefined;
-  dontCrossCorners: boolean | undefined;
+export default class AStar {
+  allowDiagonal: boolean;
+  dontCrossCorners: boolean;
   heuristic: HeuristicFunc;
   weight: number;
   diagonalMovement: number | undefined;
@@ -31,8 +31,8 @@ class AStar {
    * @param {Options} options
    */
   constructor(options: Options) {
-    this.allowDiagonal = options.allowDiagonal;
-    this.dontCrossCorners = options.dontCrossCorners;
+    this.allowDiagonal = !!options.allowDiagonal;
+    this.dontCrossCorners = !!options.dontCrossCorners;
     this.heuristic = options.heuristic || Heuristic.manhattan;
     this.weight = options.weight || 1;
     this.diagonalMovement = options.diagonalMovement;
