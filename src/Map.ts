@@ -6,7 +6,7 @@ import Point from "./Point";
 type Privates = {
   width: number;
   height: number;
-  raw: Array<any>;
+  raw: any[];
 };
 
 type Size = {

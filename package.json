@@ -3,25 +3,15 @@
   "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
-    "eater": "^3.2.0",
-    "eater-b-reporter": "^0.2.0",
-    "esm": "^3.2.22",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "babel-jest": "^24.7.1",
+    "babel-preset-power-assert": "^3.0.0",
     "espower-loader": "^1.2.2",
     "fixpack": "^2.3.1",
+    "jest": "^24.7.1",
     "power-assert": "^1.6.1",
     "typescript": "^3.4.3"
-  },
-  "eater": {
-    "glob": "src/**/test/*.js",
-    "require": [
-      "./enable-power-assert",
-      "esm"
-    ],
-    "reporter": "eater-b-reporter"
-  },
-  "esm": {
-    "mode": "all",
-    "cjs": true
   },
   "keywords": [],
   "license": "WTFPL",
@@ -29,6 +19,6 @@
   "scripts": {
     "build": "flow-remove-types src/ -d lib/",
     "fixpack": "fixpack",
-    "test": "eater"
+    "test": "jest"
   }
 }
