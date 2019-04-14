@@ -18,18 +18,18 @@ function isPositive(value: number): boolean {
   return value >= 0;
 }
 
-function convertRawIndex({ x, y }: Point, { width }: Map): number {
+function convertRawIndex<E>({ x, y }: Point, { width }: Map<E>): number {
   return either(y, isPositive)(0) * width + either(x, isPositive)(0);
 }
 
-const privates = new PrivateFields<Map, Privates>();
+const privates = new PrivateFields<Map<any>, Privates>();
 
-export default class Map {
+export default class Map<E> {
   constructor(width: number = 0, height: number = 0) {
     privates.set(this, {
       width: width,
       height: height,
-      raw: new Array(width * height)
+      raw: new Array<E | undefined>(width * height)
     });
   }
 
@@ -41,7 +41,7 @@ export default class Map {
     return privates.get(this).height;
   }
 
-  get raw(): Array<number> {
+  get raw(): Array<E | undefined> {
     return [...either(privates.get(this).raw)([])];
   }
 
@@ -51,16 +51,16 @@ export default class Map {
     return x >= this.width || y >= this.height;
   }
 
-  fill(element: any) {
+  fill(element: E) {
     privates.get(this).raw.fill(element);
   }
 
-  put(point: Point, element: any) {
+  put(point: Point, element?: E) {
     if (this.isOverRange(point)) return;
     privates.get(this).raw[convertRawIndex(point, this)] = element;
   }
 
-  pick(point: Point) {
+  pick(point: Point): E | undefined {
     if (this.isOverRange(point)) return;
     return privates.get(this).raw[convertRawIndex(point, this)];
   }
@@ -68,11 +68,11 @@ export default class Map {
   pickOut(point: Point) {
     if (this.isOverRange(point)) return;
     const result = this.pick(point);
-    this.put(point, undefined);
+    this.put(point);
     return result;
   }
 
-  paste(point: Point, map: Map) {
+  paste(point: Point, map: Map<E>) {
     const pasteRect = rect(point, map.width, map.height);
     map.raw.forEach((element, index) => {
       const point = pasteRect[index];
