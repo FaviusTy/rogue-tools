@@ -21,6 +21,8 @@ type Options = {
   neigbors?: Neighbors;
 };
 
+const { SQRT2 } = Math;
+
 export default class AStar {
   allowDiagonal: boolean;
   dontCrossCorners: boolean;
@@ -65,16 +67,15 @@ export default class AStar {
 
   /**
    * Find and return the the path.
-   * @return {number[][]} The path, including both start and
+   * @return {Point[]} The path, including both start and
    *     end positions.
    */
   findPath<E>(start: Point, end: Point, grid: Map<E>) {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
       return nodeA.cost - nodeB.cost;
     });
-    const startNode: Node = new Node(start);
-    const endNode: Node = new Node(end);
-    const { SQRT2 } = Math;
+    const startNode = new Node(start);
+    const endNode = new Node(end);
 
     // set the `g` and `f` value of the start node to be 0
     startNode.g_cost = 0;
@@ -90,9 +91,7 @@ export default class AStar {
       node.close();
 
       // if reached the end position, construct the path and return it
-      if (node === endNode) {
-        return backtrace(endNode);
-      }
+      if (node === endNode) return backtrace(endNode);
 
       // get neigbours of the current node
       const neighbors = this.neighbors.arounds(node.point).map(point => {
