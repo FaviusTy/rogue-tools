@@ -10,6 +10,7 @@ import Heuristic, { HeuristicFunc } from "./Heuristic";
 import Map from "../Map";
 import Point from "../Point";
 import Node from "./Node";
+import Neighbors from "../Neighbors";
 
 type Options = {
   allowDiagonal?: boolean;
@@ -17,6 +18,7 @@ type Options = {
   diagonalMovement?: DiagonalMovement;
   heuristic?: HeuristicFunc;
   weight?: number;
+  neigbors?: Neighbors;
 };
 
 export default class AStar {
@@ -25,6 +27,7 @@ export default class AStar {
   heuristic: HeuristicFunc;
   weight: number;
   diagonalMovement: number | undefined;
+  neighbors: Neighbors;
 
   /**
    * A* path-finder. Based upon https://github.com/bgrins/javascript-astar
@@ -36,6 +39,7 @@ export default class AStar {
     this.dontCrossCorners = !!options.dontCrossCorners;
     this.heuristic = options.heuristic || Heuristic.manhattan;
     this.weight = options.weight || 1;
+    this.neighbors = options.neigbors || new Neighbors(8);
     this.diagonalMovement = options.diagonalMovement;
 
     if (!this.diagonalMovement) {
@@ -91,10 +95,9 @@ export default class AStar {
       }
 
       // get neigbours of the current node
-      const neighbors = grid.getNeighbors(
-        node,
-        this.diagonalMovement
-      ) as Node[];
+      const neighbors = this.neighbors.arounds(node).map(point => {
+        return new Node(point);
+      });
       neighbors.forEach(neighbor => {
         if (neighbor.closed) return;
         const { x, y } = neighbor;
