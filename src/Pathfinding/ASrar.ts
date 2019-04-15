@@ -7,6 +7,7 @@ import {
 } from "./DiagonalMovement";
 import backtrace from "./utils/backtrack";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
+import Map from "../Map";
 import Point from "../Point";
 import Node from "./Node";
 
@@ -63,12 +64,12 @@ export default class AStar {
    * @return {number[][]} The path, including both start and
    *     end positions.
    */
-  findPath(start: Point, end: Point, grid: any[]) {
+  findPath<E>(start: Point, end: Point, grid: Map<E>) {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
       return nodeA.cost - nodeB.cost;
     });
-    const startNode: Node = grid.getNodeAt(start.x, start.y);
-    const endNode: Node = grid.getNodeAt(end.x, end.y);
+    const startNode: Node = new Node(start);
+    const endNode: Node = new Node(end);
     const { SQRT2 } = Math;
 
     // set the `g` and `f` value of the start node to be 0
