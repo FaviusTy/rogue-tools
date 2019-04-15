@@ -20,7 +20,7 @@ test("それは row によって生成された空間を配列として返す", 
 });
 
 test("それが row によって返す配列は非破壊的である", () => {
-  const map = new Map(2, 2);
+  const map = new Map<boolean>(2, 2);
   const raw = map.raw;
   raw[2] = true;
   assert(raw[2] !== map.raw[2]);
@@ -32,7 +32,7 @@ test("それが生成する空間配列の各要素の初期値はundefinedで�
 });
 
 test("それは put によって指定した座標に対応する要素を保持する", () => {
-  const map = new Map(5, 5);
+  const map = new Map<boolean>(5, 5);
   map.put(new Point(3, 3), true);
   assert(map.raw[18]);
 });
@@ -46,6 +46,7 @@ test("それは pick によって与えられたPointに格納されている値
 
 test("それは pick に与えたPointが空間の範囲外だった時にundefinedを返す", () => {
   const map = new Map(5, 5);
+  map.fill(true);
   const overX = new Point(5, 0);
   const overY = new Point(1, 5);
   const overRange = new Point(5, 5);
@@ -65,7 +66,6 @@ test("それは paste に与えたMapインスタンスをPointを原点とし�
   const pasteMap = new Map(2, 2);
   pasteMap.fill(true);
   target.paste(new Point(1, 1), pasteMap);
-  console.log(target.raw);
   range(2, 1).forEach(x => {
     range(2, 1).forEach(y => {
       assert(target.pick(new Point(x, y)));
@@ -74,7 +74,7 @@ test("それは paste に与えたMapインスタンスをPointを原点とし�
 });
 
 test("それは clip によって指定した範囲の空間を新しいMapインスタンスとして返す", () => {
-  const target = new Map(5, 5);
+  const target = new Map<number>(5, 5);
   let count = 0;
   range(2, 2).forEach(y => {
     range(3, 1).forEach(x => {
@@ -83,12 +83,14 @@ test("それは clip によって指定した範囲の空間を新しいMapイ�
     });
   });
   const clipedMap = target.clip(new Point(1, 2), { width: 3, height: 2 });
+  if (!clipedMap) return fail("clipedMap undefined");
   clipedMap.raw.forEach((element, index) => assert(element === index));
 });
 
 test("それは pickOut によって指定した Point の値を取り出す", () => {
-  const target = new Map(5, 5);
-  target.fill("*");
+  const element = "*" as const;
+  const target = new Map<typeof element>(5, 5);
+  target.fill(element);
   const pickOutPoint = new Point(3, 1);
   const result = target.pickOut(pickOutPoint);
   assert(result === "*");

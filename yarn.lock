@@ -826,15 +826,40 @@
   dependencies:
     "@babel/types" "^7.3.0"
 
-"@types/heap@^0.2.28":
-  version "0.2.28"
-  resolved "https://registry.yarnpkg.com/@types/heap/-/heap-0.2.28.tgz#c4247fae0e438c76ae05194c4b87cd5c4e859a7d"
-  integrity sha1-xCR/rg5DjHauBRlMS4fNXE6Fmn0=
+"@types/empower@*":
+  version "1.2.30"
+  resolved "https://registry.yarnpkg.com/@types/empower/-/empower-1.2.30.tgz#c7cfc14b3a61e54c74c674c1fbc91ba2df0d1392"
+  integrity sha1-x8/BSzph5Ux0xnTB+8kbot8NE5I=
 
 "@types/istanbul-lib-coverage@^2.0.0":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.0.tgz#1eb8c033e98cf4e1a4cedcaf8bcafe8cb7591e85"
   integrity sha512-eAtOAFZefEnfJiRFQBGw1eYqa5GTLCZ1y86N0XSI/D6EB+E8z6VPV/UL7Gi5UEclFqoQk+6NRqEDsfmDLXn8sg==
+
+"@types/jest-diff@*":
+  version "20.0.1"
+  resolved "https://registry.yarnpkg.com/@types/jest-diff/-/jest-diff-20.0.1.tgz#35cc15b9c4f30a18ef21852e255fdb02f6d59b89"
+  integrity sha512-yALhelO3i0hqZwhjtcr6dYyaLoCHbAMshwtj6cGxTvHZAKXHsYGdff6E8EPw3xLKY0ELUTQ69Q1rQiJENnccMA==
+
+"@types/jest@^24.0.11":
+  version "24.0.11"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.11.tgz#1f099bea332c228ea6505a88159bfa86a5858340"
+  integrity sha512-2kLuPC5FDnWIDvaJBzsGTBQaBbnDweznicvK7UGYzlIJP4RJR2a4A/ByLUXEyEgag6jz8eHdlWExGDtH3EYUXQ==
+  dependencies:
+    "@types/jest-diff" "*"
+
+"@types/power-assert-formatter@*":
+  version "1.4.28"
+  resolved "https://registry.yarnpkg.com/@types/power-assert-formatter/-/power-assert-formatter-1.4.28.tgz#25b8fddb6322259c6b91c35338d39b0f8e524252"
+  integrity sha1-Jbj922MiJZxrkcNTONObD45SQlI=
+
+"@types/power-assert@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@types/power-assert/-/power-assert-1.5.0.tgz#4cc43717127cd81901555f905c55f02938120dcb"
+  integrity sha512-KPoeO2vSMGOOL1g8p/d7mvTTz7SCW7RRcpavqxhFwKZoqsDd1nwPGE9QICIt50b348/9MJYuBdwjUK34Y09XJw==
+  dependencies:
+    "@types/empower" "*"
+    "@types/power-assert-formatter" "*"
 
 "@types/stack-utils@^1.0.1":
   version "1.0.1"

@@ -28,7 +28,7 @@ export function line(start: Point, end: Point) {
     });
 }
 
-export function isMatrix(target: Point[]) {
+export function isMatrix(target: any): target is Point[] {
   if (!Array.isArray(target)) return false;
   if (target.length === 0) return true;
   if (target.filter(point => !(point instanceof Point)).length !== 0)

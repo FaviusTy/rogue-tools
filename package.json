@@ -7,6 +7,8 @@
   "devDependencies": {
     "@babel/preset-env": "7.4.3",
     "@babel/preset-typescript": "7.3.3",
+    "@types/jest": "^24.0.11",
+    "@types/power-assert": "^1.5.0",
     "babel-jest": "24.7.1",
     "babel-preset-power-assert": "3.0.0",
     "espower-loader": "1.2.2",
