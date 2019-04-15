@@ -95,9 +95,12 @@ export default class AStar {
       }
 
       // get neigbours of the current node
-      const neighbors = this.neighbors.arounds(node).map(point => {
+      const neighbors = this.neighbors.arounds(node.point).map(point => {
         return new Node(point);
       });
+
+      //TODO: filter walkable Node.
+
       neighbors.forEach(neighbor => {
         if (neighbor.closed) return;
         const { x, y } = neighbor;
