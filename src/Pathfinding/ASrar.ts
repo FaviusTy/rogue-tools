@@ -36,7 +36,7 @@ export default class AStar {
   dontCrossCorners: boolean;
   heuristic: HeuristicFunc;
   weight: number;
-  diagonalMovement: number | undefined;
+  diagonalMovement: DiagonalMovement;
   neighbors: Neighbors;
   walkable: WalkableFunc;
 
@@ -51,7 +51,7 @@ export default class AStar {
     this.heuristic = options.heuristic || Heuristic.manhattan;
     this.weight = options.weight || 1;
     this.neighbors = options.neigbors || new Neighbors(8);
-    this.diagonalMovement = options.diagonalMovement;
+    this.diagonalMovement = options.diagonalMovement || Never;
     this.walkable = options.walkable || defaultWalkable;
 
     if (!this.diagonalMovement) {

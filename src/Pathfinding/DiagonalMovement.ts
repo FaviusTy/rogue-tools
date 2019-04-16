@@ -1,7 +1,7 @@
-export const Always = 0 as const;
-export const Never = 1 as const;
-export const IfAtMostOneObstacle = 2 as const;
-export const OnlyWhenNoObstacles = 4 as const;
+export const Always = 0;
+export const Never = 1;
+export const IfAtMostOneObstacle = 2;
+export const OnlyWhenNoObstacles = 4;
 
 export type DiagonalMovement =
   | typeof Always
