@@ -11,9 +11,10 @@ import Map from "../Map";
 import Point from "../Point";
 import Node from "./Node";
 import Neighbors from "../Neighbors";
+import exists from "../utils/exsits";
 
-function defaultWalkable(point: Point) {
-  return true;
+function defaultWalkable<T>(entity?: T) {
+  return exists(entity);
 }
 
 type WalkableFunc = typeof defaultWalkable;
@@ -109,7 +110,7 @@ export default class AStar {
 
       // walable mapping.
       const walkables = neighbors.map(neighbor =>
-        this.walkable(neighbor.point)
+        this.walkable(grid.pick(neighbor.point))
       );
 
       neighbors
