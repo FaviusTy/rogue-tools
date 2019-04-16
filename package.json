@@ -16,7 +16,8 @@
     "fixpack": "2.3.1",
     "jest": "24.7.1",
     "power-assert": "1.6.1",
-    "typescript": "3.4.3"
+    "typescript": "3.4.3",
+    "typesync": "^0.5.1"
   },
   "keywords": [],
   "license": "WTFPL",
@@ -24,6 +25,7 @@
   "scripts": {
     "build": "flow-remove-types src/ -d lib/",
     "fixpack": "fixpack",
-    "test": "jest"
+    "test": "jest",
+    "typesync": "typesync"
   }
 }
