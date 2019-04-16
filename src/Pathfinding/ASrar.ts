@@ -109,8 +109,8 @@ export default class AStar {
       });
 
       // walable mapping.
-      const walkables = neighbors.map(neighbor =>
-        this.walkable(grid.pick(neighbor.point))
+      const walkables = neighbors.map(({ point }) =>
+        this.walkable(grid.pick(point))
       );
 
       neighbors
