@@ -125,7 +125,7 @@ export default class AStar {
           // and calculate the next g score
           const base_cost = node.opened
             ? node.g_cost
-            : either(grid.pick(node.point), exists)({ cost: 1 }).cost;
+            : either(grid.pick(node.point))({ cost: 1 }).cost;
           const ng =
             base_cost + (x - node.x === 0 || y - node.y === 0 ? 1 : SQRT2);
 
