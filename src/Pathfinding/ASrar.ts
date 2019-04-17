@@ -105,17 +105,17 @@ export default class AStar {
 
       // get neigbours of the current node
       const neighbors = this.neighbors.arounds(node.point).map(point => {
-        return new Node(point);
+        return point ? new Node(point) : null;
       });
 
       // walable mapping.
-      const walkables = neighbors.map(({ point }) =>
-        this.walkable(grid.pick(point))
+      const walkables = neighbors.map(node =>
+        node ? this.walkable(grid.pick(node.point)) : false
       );
 
       neighbors
         //TODO: use diagonalMovement
-        .filter((_, index) => walkables[index])
+        .filter((_, index): _ is Node => walkables[index])
         .forEach(neighbor => {
           if (neighbor.closed) return;
           const { x, y } = neighbor;
