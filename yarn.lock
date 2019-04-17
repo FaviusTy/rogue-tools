@@ -4685,7 +4685,7 @@ typescript@3.4.3:
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.4.3.tgz#0eb320e4ace9b10eadf5bc6103286b0f8b7c224f"
   integrity sha512-FFgHdPt4T/duxx6Ndf7hwgMZZjZpB+U0nMNGVCYPq0rEzWKjEDobm4J6yb3CS7naZ0yURFqdw9Gwc7UOh/P9oQ==
 
-typesync@^0.5.1:
+typesync@0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/typesync/-/typesync-0.5.1.tgz#e28d4e98479ed777e4de081428663eb526fc1bc7"
   integrity sha512-86SeL2AI+JRDol0z/NkhaNUhY3qcxoOhIm7BzvLn9v5IMXBFolbudahT5SuSRR3qP5BTrDT0Ebz2nQFh36tAhQ==
@@ -4791,7 +4791,7 @@ util.promisify@^1.0.0:
     define-properties "^1.1.2"
     object.getownpropertydescriptors "^2.0.3"
 
-utility-types@^3.5.0:
+utility-types@3.5.0:
   version "3.5.0"
   resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.5.0.tgz#d80c95b774575d1683f5ba807879c52d8f35db1c"
   integrity sha512-1XdYkHN+Dcgh1PQEER1CF5BXkGLvf7Owor6tYSyEs+lbHi4obz4ZeJZQVZyinKvFaGwriBKRlEk5hiApfhglQg==
