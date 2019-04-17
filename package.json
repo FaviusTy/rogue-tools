@@ -17,7 +17,8 @@
     "jest": "24.7.1",
     "power-assert": "1.6.1",
     "typescript": "3.4.3",
-    "typesync": "^0.5.1"
+    "typesync": "^0.5.1",
+    "utility-types": "^3.5.0"
   },
   "keywords": [],
   "license": "WTFPL",

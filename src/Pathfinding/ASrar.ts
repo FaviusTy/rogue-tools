@@ -12,6 +12,7 @@ import Point from "../Point";
 import Node from "./Node";
 import Neighbors from "../Neighbors";
 import exists from "../utils/exsits";
+import either from "../utils/either";
 
 function defaultWalkable<T>(entity?: T) {
   return exists(entity);
@@ -80,7 +81,7 @@ export default class AStar {
    * @return {Point[]} The path, including both start and
    *     end positions.
    */
-  findPath<E>(start: Point, end: Point, grid: Map<E>) {
+  findPath<E extends { cost: number }>(start: Point, end: Point, grid: Map<E>) {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
       return nodeA.cost - nodeB.cost;
     });
@@ -122,8 +123,11 @@ export default class AStar {
 
           // get the distance between current node and the neighbor
           // and calculate the next g score
+          const base_cost = node.opened
+            ? node.g_cost
+            : either(grid.pick(node.point), exists)({ cost: 1 }).cost;
           const ng =
-            node.g_cost + (x - node.x === 0 || y - node.y === 0 ? 1 : SQRT2);
+            base_cost + (x - node.x === 0 || y - node.y === 0 ? 1 : SQRT2);
 
           // check if the neighbor has not been inspected yet, or
           // can be reached with smaller cost from the current node

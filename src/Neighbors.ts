@@ -52,6 +52,15 @@ export default class Neighbors {
     return this.right(this.down(point));
   }
 
+  /*
+   *  +---+---+---+
+   *  | 7 | 0 | 1 |
+   *  +---+---+---+
+   *  | 6 |   | 2 |
+   *  +---+---+---+
+   *  | 5 | 4 | 3 |
+   *  +---+---+---+
+   */
   arounds(point: Point): Array<Point | null> {
     const result = [
       this.up(point),
