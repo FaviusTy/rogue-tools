@@ -1,6 +1,7 @@
 import exsits from "./utils/exsits";
 import Point from "./Point";
 import PriveteFields from "./utils/PrivateFields";
+import exists from "./utils/exsits";
 
 type Edges = 4 | 8;
 
@@ -32,27 +33,27 @@ export default class Neighbors {
   }
 
   upperLeft(point: Point) {
-    if (this.edges === 4) return undefined;
-    if (this.edges === 8) return this.left(this.up(point));
+    if (this.edges === 4) return null;
+    return this.left(this.up(point));
   }
 
   upperRight(point: Point) {
-    if (this.edges === 4) return undefined;
-    if (this.edges === 8) return this.right(this.up(point));
+    if (this.edges === 4) return null;
+    return this.right(this.up(point));
   }
 
   bottomLeft(point: Point) {
-    if (this.edges === 4) return undefined;
-    if (this.edges === 8) return this.left(this.down(point));
+    if (this.edges === 4) return null;
+    return this.left(this.down(point));
   }
 
   bottomRight(point: Point) {
-    if (this.edges === 4) return undefined;
-    if (this.edges === 8) return this.right(this.down(point));
+    if (this.edges === 4) return null;
+    return this.right(this.down(point));
   }
 
-  arounds(point: Point): Array<Point> {
-    return [
+  arounds(point: Point): Array<Point | null> {
+    const result = [
       this.up(point),
       this.upperRight(point),
       this.right(point),
@@ -61,6 +62,8 @@ export default class Neighbors {
       this.bottomLeft(point),
       this.left(point),
       this.upperLeft(point)
-    ].filter(exsits);
+    ];
+
+    return this.edges === 4 ? result.filter(exists) : result;
   }
 }
