@@ -1,4 +1,3 @@
-import exsits from "./utils/exsits";
 import Point from "./Point";
 import PriveteFields from "./utils/PrivateFields";
 import exists from "./utils/exsits";
