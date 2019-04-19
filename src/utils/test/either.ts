@@ -3,7 +3,7 @@ import either from "../either";
 
 test("それは与えた値が真でなかったときに別の値を返す関数を返す", () => {
   assert(either(null)("returned") === "returned");
-  assert(either(true)("notReturned"));
+  assert(either(true)("notReturned") === true);
 });
 
 test("それは第２引数に与えた関数の戻り値で真偽を判定できる", () => {
