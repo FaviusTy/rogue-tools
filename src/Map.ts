@@ -14,7 +14,7 @@ type Size = {
   height: number;
 };
 
-function isPositive(value: number): boolean {
+function isPositive(value: number): value is number {
   return value >= 0;
 }
 
