@@ -3,7 +3,8 @@ import {
   DiagonalMovement,
   Never,
   OnlyWhenNoObstacles,
-  IfAtMostOneObstacle
+  IfAtMostOneObstacle,
+  diagonalWalkable
 } from "./DiagonalMovement";
 import backtrace from "./utils/backtrack";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
@@ -81,7 +82,11 @@ export default class AStar {
    * @return {Point[]} The path, including both start and
    *     end positions.
    */
-  findPath<E extends { cost: number }>(start: Point, end: Point, grid: Map<E>) {
+  findPath<E extends { cost: number }>(
+    start: Point,
+    end: Point,
+    grid: Map<E>
+  ): Point[] {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
       return nodeA.cost - nodeB.cost;
     });
@@ -110,12 +115,14 @@ export default class AStar {
       });
 
       // walable mapping.
-      const walkables = neighbors.map(node =>
-        node ? this.walkable(grid.pick(node.point)) : false
+      const walkables = diagonalWalkable(
+        this.diagonalMovement,
+        neighbors.map(node =>
+          node ? this.walkable(grid.pick(node.point)) : false
+        )
       );
 
       neighbors
-        //TODO: use diagonalMovement
         .filter((_, index): _ is Node => walkables[index])
         .forEach(neighbor => {
           if (neighbor.closed) return;
@@ -123,11 +130,11 @@ export default class AStar {
 
           // get the distance between current node and the neighbor
           // and calculate the next g score
-          const base_cost = node.opened
-            ? node.g_cost
-            : either(grid.pick(node.point))({ cost: 1 }).cost;
+          const base_cost = either(grid.pick(node.point))({ cost: 1 }).cost;
           const ng =
-            base_cost + (x - node.x === 0 || y - node.y === 0 ? 1 : SQRT2);
+            x - node.x === 0 || y - node.y === 0
+              ? base_cost
+              : base_cost * SQRT2;
 
           // check if the neighbor has not been inspected yet, or
           // can be reached with smaller cost from the current node
@@ -148,8 +155,8 @@ export default class AStar {
               openList.updateItem(neighbor);
             }
           }
-        }); // end for each neighbor
-    } // end while not open list empty
+        });
+    }
 
     // fail to find the path
     return [];

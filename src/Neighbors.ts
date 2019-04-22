@@ -6,6 +6,22 @@ type Edges = 4 | 8;
 
 const privates = new PriveteFields<Neighbors, Edges>();
 
+export const NeighborIndexes = Object.freeze({
+  UP: 0 as const,
+  UP_RIGHT: 1 as const,
+  RIGHT: 2 as const,
+  BOTTOM_RIGHT: 3 as const,
+  BOTTOM: 4 as const,
+  BOTTOM_LEFT: 5 as const,
+  LEFT: 6 as const,
+  UP_LEFT: 7 as const
+});
+
+export function OffsetIndexes() {
+  const { UP, RIGHT, BOTTOM, LEFT } = NeighborIndexes;
+  return [UP, RIGHT, BOTTOM, LEFT];
+}
+
 export default class Neighbors {
   constructor(edges: Edges = 4) {
     privates.set(this, edges);
