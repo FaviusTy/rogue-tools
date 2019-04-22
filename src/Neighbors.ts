@@ -17,11 +17,6 @@ export const NeighborIndexes = Object.freeze({
   UP_LEFT: 7 as const
 });
 
-export function OffsetIndexes() {
-  const { UP, RIGHT, BOTTOM, LEFT } = NeighborIndexes;
-  return [UP, RIGHT, BOTTOM, LEFT];
-}
-
 export default class Neighbors {
   constructor(edges: Edges = 4) {
     privates.set(this, edges);
