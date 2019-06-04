@@ -16,7 +16,7 @@
     "fixpack": "2.3.1",
     "jest": "24.8.0",
     "power-assert": "1.6.1",
-    "tar": "4.4.8",
+    "tar": "4.4.10",
     "typescript": "3.5.1",
     "typesync": "0.5.1",
     "utility-types": "3.7.0"
