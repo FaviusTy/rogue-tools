@@ -130,7 +130,7 @@ export default class AStar {
 
           // get the distance between current node and the neighbor
           // and calculate the next g score
-          const base_cost = either(grid.pick(node.point))({ cost: 1 }).cost;
+          const base_cost = either(grid.pick(node.point))({ cost: 0 }).cost + 1;
           const ng =
             x - node.x === 0 || y - node.y === 0
               ? base_cost
