@@ -14,7 +14,6 @@ import Node from "./Node";
 import NodeBucket from "./NodeBucket";
 import Neighbors from "../Neighbors";
 import exists from "../utils/exsits";
-import either from "../utils/either";
 
 function defaultWalkable<T>(entity?: T) {
   return exists(entity);
