@@ -41,7 +41,6 @@ export default class AStar {
   diagonalMovement: DiagonalMovement;
   neighbors: Neighbors;
   walkable: WalkableFunc;
-
   /**
    * A* path-finder. Based upon https://github.com/bgrins/javascript-astar
    * @constructor
@@ -98,20 +97,22 @@ export default class AStar {
 
     // push the start node into the open list
     openList.push(startNode);
-    startNode.open();
+
+    let debug = 0;
 
     // while the open list is not empty
     while (!openList.empty()) {
+      if (debug > 120) return [];
       // pop the position of node which has the minimum `f` value.
       const node = openList.pop();
-      node.close();
 
       // if reached the end position, construct the path and return it
+      console.log("node === endNode", node.point.key, endNode.point.key);
       if (node === endNode) return backtrace(endNode);
 
       // get neigbours of the current node
       const neighbors = this.neighbors.arounds(node.point).map(point => {
-        return point ? new Node(point) : null;
+        return point && point.x >= 0 && point.y >= 0 ? new Node(point) : null;
       });
 
       // walable mapping.
@@ -122,43 +123,52 @@ export default class AStar {
         )
       );
 
-      neighbors
-        .filter((_, index): _ is Node => walkables[index])
-        .forEach(neighbor => {
-          if (neighbor.closed) return;
-          const { x, y } = neighbor;
+      console.log(
+        neighbors
+          .filter((_, index): _ is Node => walkables[index])
+          .map(n => n.point.key)
+      );
 
-          // get the distance between current node and the neighbor
-          // and calculate the next g score
-          const base_cost = either(grid.pick(node.point))({ cost: 0 }).cost + 1;
-          const ng =
-            x - node.x === 0 || y - node.y === 0
-              ? base_cost
-              : base_cost * SQRT2;
+      for (const neighbor of neighbors.filter(
+        (_, index): _ is Node => walkables[index]
+      )) {
+        debug++;
+        console.log("neighbor.state", neighbor.point.key, neighbor.state);
+        if (neighbor.closed) continue;
+        const { x, y } = neighbor;
 
-          // check if the neighbor has not been inspected yet, or
-          // can be reached with smaller cost from the current node
-          if (!neighbor.opened || ng < neighbor.g_cost) {
-            neighbor.g_cost = ng;
-            neighbor.h_cost =
-              neighbor.h_cost ||
-              this.weight * this.heuristic(neighbor.point.sub(end).abs);
-            neighbor.parent = node;
+        // get the distance between current node and the neighbor
+        // and calculate the next g score
+        const base_cost = either(grid.pick(node.point))({ cost: 0 }).cost;
+        const ng =
+          base_cost + (x - node.x === 0 || y - node.y === 0 ? 1 : SQRT2);
 
-            if (!neighbor.opened) {
-              openList.push(neighbor);
-              neighbor.open();
-            } else {
-              // the neighbor can be reached with smaller cost.
-              // Since its f value has been updated, we have to
-              // update its position in the open list
-              openList.updateItem(neighbor);
-            }
+        // check if the neighbor has not been inspected yet, or
+        // can be reached with smaller cost from the current node
+        if (!neighbor.opened || ng < neighbor.g_cost) {
+          neighbor.g_cost = ng;
+          neighbor.h_cost =
+            neighbor.h_cost ||
+            this.weight * this.heuristic(neighbor.point.sub(end).abs);
+          neighbor.parent = node;
+
+          if (!neighbor.opened) {
+            console.log("openList push", neighbor.point.key);
+            openList.push(neighbor);
+            neighbor.open();
+            console.log("open", neighbor.point.key, neighbor.state);
+          } else {
+            // the neighbor can be reached with smaller cost.
+            // Since its f value has been updated, we have to
+            // update its position in the open list
+            openList.updateItem(neighbor);
           }
-        });
+        }
+      }
     }
 
     // fail to find the path
+    console.log("fail to path");
     return [];
   }
 }

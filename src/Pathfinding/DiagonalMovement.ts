@@ -15,7 +15,9 @@ export type DiagonalMovement =
 
 export function diagonalWalkable(type: DiagonalMovement, around: boolean[]) {
   if (type === Never)
-    return around.filter((_, index) => [0, 2, 4, 6].includes(index));
+    return around.map(
+      (walkable, index) => [0, 2, 4, 6].includes(index) && walkable
+    );
   if (type === IfAtMostOneObstacle) {
     return [
       around[UP],

@@ -17,7 +17,7 @@ export default class Node {
     this.point = point;
     this.g_cost = 0;
     this.h_cost = 0;
-    this.state = OPEN;
+    this.state = NONE;
   }
 
   get x() {
