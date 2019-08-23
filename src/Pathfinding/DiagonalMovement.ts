@@ -2,9 +2,9 @@ import { NeighborIndexes } from "../Neighbors";
 
 const { UP, RIGHT, BOTTOM, LEFT } = NeighborIndexes;
 
-export const Always = 0;
-export const Never = 1;
-export const IfAtMostOneObstacle = 2;
+export const Always = 1;
+export const Never = 2;
+export const IfAtMostOneObstacle = 3;
 export const OnlyWhenNoObstacles = 4;
 
 export type DiagonalMovement =
