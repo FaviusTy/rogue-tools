@@ -151,12 +151,13 @@ export default class AStar {
           if (!neighbor.opened) {
             openList.push(neighbor);
             neighbor.open();
-          } else {
-            // the neighbor can be reached with smaller cost.
-            // Since its f value has been updated, we have to
-            // update its position in the open list
-            openList.updateItem(neighbor);
+            continue;
           }
+
+          // the neighbor can be reached with smaller cost.
+          // Since its f value has been updated, we have to
+          // update its position in the open list
+          openList.updateItem(neighbor);
         }
       }
     }
