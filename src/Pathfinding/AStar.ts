@@ -107,7 +107,6 @@ export default class AStar {
       const node = openList.pop();
 
       // if reached the end position, construct the path and return it
-      console.log("node === endNode", node.point.key, endNode.point.key);
       if (node === endNode) return backtrace(endNode);
 
       // get neigbours of the current node
