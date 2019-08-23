@@ -12,6 +12,6 @@ test("flat routing", () => {
   const map = new Map<{ cost: number }>(5, 7);
   map.fill({ cost: 0 });
   const aster = new AStar({});
-  const result = aster.findPath(new Point(0, 0), new Point(5, 7), map);
-  console.log(result);
+  const result = aster.findPath(new Point(0, 0), new Point(4, 6), map);
+  console.log(result.map(point => point.key));
 });

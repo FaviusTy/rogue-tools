@@ -11,6 +11,7 @@ import Heuristic, { HeuristicFunc } from "./Heuristic";
 import Map from "../Map";
 import Point from "../Point";
 import Node from "./Node";
+import NodeBucket from "./NodeBucket";
 import Neighbors from "../Neighbors";
 import exists from "../utils/exsits";
 import either from "../utils/either";
@@ -91,18 +92,17 @@ export default class AStar {
     });
     const startNode = new Node(start);
     const endNode = new Node(end);
+    const bucket = new NodeBucket([startNode, endNode]);
 
     // set the `g` and `f` value of the start node to be 0
     startNode.g_cost = 0;
 
     // push the start node into the open list
     openList.push(startNode);
-
-    let debug = 0;
+    startNode.open();
 
     // while the open list is not empty
     while (!openList.empty()) {
-      if (debug > 120) return [];
       // pop the position of node which has the minimum `f` value.
       const node = openList.pop();
 
@@ -112,7 +112,9 @@ export default class AStar {
 
       // get neigbours of the current node
       const neighbors = this.neighbors.arounds(node.point).map(point => {
-        return point && point.x >= 0 && point.y >= 0 ? new Node(point) : null;
+        return point && point.x >= 0 && point.y >= 0
+          ? bucket.pick(point)
+          : null;
       });
 
       // walable mapping.
@@ -123,17 +125,9 @@ export default class AStar {
         )
       );
 
-      console.log(
-        neighbors
-          .filter((_, index): _ is Node => walkables[index])
-          .map(n => n.point.key)
-      );
-
       for (const neighbor of neighbors.filter(
         (_, index): _ is Node => walkables[index]
       )) {
-        debug++;
-        console.log("neighbor.state", neighbor.point.key, neighbor.state);
         if (neighbor.closed) continue;
         const { x, y } = neighbor;
 
@@ -153,10 +147,8 @@ export default class AStar {
           neighbor.parent = node;
 
           if (!neighbor.opened) {
-            console.log("openList push", neighbor.point.key);
             openList.push(neighbor);
             neighbor.open();
-            console.log("open", neighbor.point.key, neighbor.state);
           } else {
             // the neighbor can be reached with smaller cost.
             // Since its f value has been updated, we have to
@@ -168,7 +160,6 @@ export default class AStar {
     }
 
     // fail to find the path
-    console.log("fail to path");
     return [];
   }
 }
