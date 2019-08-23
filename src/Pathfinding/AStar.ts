@@ -20,6 +20,12 @@ function defaultWalkable<T>(entity?: T) {
   return exists(entity);
 }
 
+function defaultCalcCost<T>(entity: T) {
+  return entity && typeof entity === "number" ? entity : 1;
+}
+
+type CalcCostFunc = typeof defaultCalcCost;
+
 type WalkableFunc = typeof defaultWalkable;
 
 type Options = {
@@ -30,6 +36,7 @@ type Options = {
   weight?: number;
   neigbors?: Neighbors;
   walkable?: WalkableFunc;
+  calcCost?: CalcCostFunc;
 };
 
 const { SQRT2 } = Math;
@@ -42,6 +49,7 @@ export default class AStar {
   diagonalMovement: DiagonalMovement;
   neighbors: Neighbors;
   walkable: WalkableFunc;
+  calcCost: CalcCostFunc;
   /**
    * A* path-finder. Based upon https://github.com/bgrins/javascript-astar
    * @constructor
@@ -55,6 +63,7 @@ export default class AStar {
     this.neighbors = options.neigbors || new Neighbors(8);
     this.diagonalMovement = options.diagonalMovement || Never;
     this.walkable = options.walkable || defaultWalkable;
+    this.calcCost = options.calcCost || defaultCalcCost;
 
     if (!this.diagonalMovement) {
       if (!this.allowDiagonal) {
@@ -82,11 +91,7 @@ export default class AStar {
    * @return {Point[]} The path, including both start and
    *     end positions.
    */
-  findPath<E extends { cost: number }>(
-    start: Point,
-    end: Point,
-    grid: Map<E>
-  ): Point[] {
+  findPath<E>(start: Point, end: Point, grid: Map<E>): Point[] {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
       return nodeA.cost - nodeB.cost;
     });
@@ -135,7 +140,7 @@ export default class AStar {
 
         // get the distance between current node and the neighbor
         // and calculate the next g score
-        const base_cost = either(grid.pick(node.point))({ cost: 0 }).cost;
+        const base_cost = this.calcCost(grid.pick(node.point));
         const ng =
           base_cost + (x - node.x === 0 || y - node.y === 0 ? 1 : SQRT2);
 
