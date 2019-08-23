@@ -27,7 +27,6 @@ test("flat routing", () => {
 test("diagonal move: Always", () => {
   const map = new Map<{ cost: number }>(2, 2);
   map.fill({ cost: 0 });
-  console.log(map.pick(new Point(1, 1)));
   const aster = new AStar({ diagonalMovement: Always });
   const result = aster.findPath(new Point(0, 0), new Point(1, 1), map);
   console.log(result.map(point => point.key));

@@ -105,9 +105,12 @@ export default class AStar {
     while (!openList.empty()) {
       // pop the position of node which has the minimum `f` value.
       const node = openList.pop();
+      node.close();
 
       // if reached the end position, construct the path and return it
-      if (node === endNode) return backtrace(endNode);
+      if (node === endNode) {
+        return backtrace(endNode);
+      }
 
       // get neigbours of the current node
       const neighbors = this.neighbors.arounds(node.point).map(point => {
