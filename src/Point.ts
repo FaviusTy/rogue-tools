@@ -1,6 +1,7 @@
 import PrivateFields from "./utils/PrivateFields";
 import lerp from "./utils/lerp";
 const { abs, round } = Math;
+const instanceCaches = new Map<string, Point>();
 const privates = new PrivateFields<Point, Privates>();
 
 type Privates = {
@@ -11,7 +12,12 @@ type Privates = {
 
 export default class Point {
   constructor(x: number = 0, y: number = 0) {
+    const cache = instanceCaches.get(`${x},${y}`);
+    if (cache) {
+      return cache;
+    }
     privates.set(this, { x: x, y: y, key: `${x},${y}` });
+    instanceCaches.set(`${x},${y}`, this);
   }
 
   static lerp(start: Point, end: Point, t: number) {
