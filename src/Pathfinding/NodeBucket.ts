@@ -8,7 +8,7 @@ export default class NodeBucket {
   }
 
   pick(point: Point) {
-    const result = this.nodes.find(node => node.point.key === point.key);
+    const result = this.nodes.find(node => node.point === point);
     if (result) {
       return result;
     }
