@@ -6,7 +6,6 @@ import {
   IfAtMostOneObstacle,
   diagonalWalkable
 } from "./DiagonalMovement";
-import backtrace from "./utils/backtrack";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
 import Map from "../Map";
 import Point from "../Point";
