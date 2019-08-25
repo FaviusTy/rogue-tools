@@ -47,4 +47,12 @@ export default class Node {
   get closed() {
     return this.state === CLOSE;
   }
+
+  backtrack(list: Point[] = []): Point[] {
+    if (this.parent) {
+      return this.parent.backtrack([...list, this.point]);
+    }
+
+    return [...list, this.point].reverse();
+  }
 }

@@ -113,7 +113,7 @@ export default class AStar {
 
       // if reached the end position, construct the path and return it
       if (node === endNode) {
-        return backtrace(endNode);
+        return endNode.backtrack();
       }
 
       // get neigbours of the current node
