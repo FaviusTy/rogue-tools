@@ -12,6 +12,12 @@ test("Point.key() でシリアライズされた文字列を受け取れる", ()
   assert("10,15" === point.key);
 });
 
+test("同じx,yによって生成されたPointは常に同じインスタンスとなる", () => {
+  const a = new Point(1, 1);
+  const b = new Point(1, 1);
+  assert(a === b);
+});
+
 test("Point.add", () => {
   const pointA = new Point(10, 8);
   const pointB = new Point(1, 5);
