@@ -38,6 +38,7 @@ test("diagonal move: Never", () => {
   const aster = new AStar({});
   const result = aster.findPath(new Point(0, 0), new Point(1, 1), map);
   console.log(result.map(point => point.key));
+  assert(result.length === 3);
 });
 
 test("diagonal move: Always", () => {
@@ -46,4 +47,5 @@ test("diagonal move: Always", () => {
   const aster = new AStar({ diagonalMovement: Always });
   const result = aster.findPath(new Point(0, 0), new Point(1, 1), map);
   console.log(result.map(point => point.key));
+  assert(result.length === 2);
 });
