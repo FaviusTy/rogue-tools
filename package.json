@@ -19,7 +19,7 @@
     "tar": "4.4.10",
     "typescript": "3.5.3",
     "typesync": "0.6.1",
-    "utility-types": "3.7.0"
+    "utility-types": "3.10.0"
   },
   "keywords": [],
   "license": "WTFPL",
