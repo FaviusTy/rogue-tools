@@ -40,8 +40,6 @@ type Options = {
 const { SQRT2 } = Math;
 
 export default class AStar {
-  allowDiagonal: boolean;
-  dontCrossCorners: boolean;
   heuristic: HeuristicFunc;
   weight: number;
   diagonalMovement: DiagonalMovement;
@@ -54,26 +52,12 @@ export default class AStar {
    * @param {Options} options
    */
   constructor(options: Options) {
-    this.allowDiagonal = !!options.allowDiagonal;
-    this.dontCrossCorners = !!options.dontCrossCorners;
     this.heuristic = options.heuristic || Heuristic.manhattan;
     this.weight = options.weight || 1;
-    this.neighbors = options.neigbors || new Neighbors(8);
+    this.neighbors = new Neighbors(8);
     this.diagonalMovement = options.diagonalMovement || Never;
     this.walkable = options.walkable || defaultWalkable;
     this.calcCost = options.calcCost || defaultCalcCost;
-
-    if (!this.diagonalMovement) {
-      if (!this.allowDiagonal) {
-        this.diagonalMovement = Never;
-      } else {
-        if (this.dontCrossCorners) {
-          this.diagonalMovement = OnlyWhenNoObstacles;
-        } else {
-          this.diagonalMovement = IfAtMostOneObstacle;
-        }
-      }
-    }
 
     // When diagonal movement is allowed the manhattan heuristic is not
     //admissible. It should be octile instead
