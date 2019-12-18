@@ -5,11 +5,12 @@
     "heap": "　0.2.6"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.5",
     "@babel/core": "7.7.5",
     "@babel/preset-env": "7.7.6",
     "@babel/preset-typescript": "7.7.4",
     "@types/heap": "0.2.28",
-    "@types/jest": "24.0.23",
+    "@types/jest": "24.0.24",
     "@types/power-assert": "1.5.2",
     "babel-jest": "24.9.0",
     "babel-preset-power-assert": "3.0.0",
@@ -26,7 +27,7 @@
   "license": "WTFPL",
   "main": "index.js",
   "scripts": {
-    "build": "flow-remove-types src/ -d lib/",
+    "build": "babel src --out-dir out --extensions '.ts' --ignore 'src/**/test'",
     "fixpack": "fixpack",
     "test": "jest",
     "typesync": "typesync"
