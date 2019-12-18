@@ -5,7 +5,7 @@
     "heap": "　0.2.6"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.5",
+    "@babel/cli": "7.7.5",
     "@babel/core": "7.7.5",
     "@babel/preset-env": "7.7.6",
     "@babel/preset-typescript": "7.7.4",
