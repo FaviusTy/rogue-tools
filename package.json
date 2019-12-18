@@ -2,9 +2,10 @@
   "name": "@favity/rogue-tools",
   "version": "0.0.1",
   "dependencies": {
-    "heap": "^0.2.6"
+    "heap": "　0.2.6"
   },
   "devDependencies": {
+    "@babel/core": "7.7.5",
     "@babel/preset-env": "7.7.6",
     "@babel/preset-typescript": "7.7.4",
     "@types/heap": "0.2.28",
