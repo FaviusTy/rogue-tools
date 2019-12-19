@@ -14,6 +14,7 @@
     "@types/power-assert": "1.5.2",
     "babel-jest": "24.9.0",
     "babel-preset-power-assert": "3.0.0",
+    "cross-env": "^6.0.3",
     "espower-loader": "1.2.2",
     "fixpack": "2.3.1",
     "jest": "24.9.0",
@@ -27,7 +28,7 @@
   "license": "WTFPL",
   "main": "index.js",
   "scripts": {
-    "build": "babel src --out-dir out --extensions '.ts' --ignore 'src/**/test'",
+    "build": "cross-env NODE_ENV=production babel src --out-dir out --extensions '.ts' --ignore 'src/**/test'",
     "fixpack": "fixpack",
     "test": "jest",
     "typesync": "typesync"
