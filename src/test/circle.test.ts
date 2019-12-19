@@ -1,7 +1,7 @@
 import Map from "../Map";
 import { rect } from "../matrix";
 import Point from "../Point";
-import { insideCircle } from "../circle";
+import { insideCircle, beautifyRadius } from "../circle";
 import assert from "power-assert";
 
 test("円の範囲内のPointを求める", () => {
@@ -34,4 +34,10 @@ test("円の範囲内のPointを求める", () => {
     }
     assert(box.pick(point) === 1);
   });
+});
+
+test("半径の値をN.5に丸める", () => {
+  assert(beautifyRadius(1) === 1.5);
+  assert(beautifyRadius(5.1) === 5.5);
+  assert(beautifyRadius(14.9) === 14.5);
 });
