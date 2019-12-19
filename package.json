@@ -34,7 +34,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir out --extensions '.ts' --ignore 'src/**/test'",
     "fixpack": "fixpack",
-    "test": "jest",
+    "test": "jest --runInBand",
     "typesync": "typesync"
   }
 }
