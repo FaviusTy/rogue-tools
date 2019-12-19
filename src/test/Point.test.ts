@@ -21,7 +21,8 @@ test("同じx,yによって生成されたPointは常に同じインスタンス
 });
 
 test("Point.toStringで適切な文字列が出力される", () => {
-  assert(new Point(12, 1).toString() === "Point{12,1}");
+  const point = new Point(12, 1);
+  assert(`${point}` === "Point{12,1}");
 });
 
 test("Point.distanse で二点間の距離を求める", () => {
