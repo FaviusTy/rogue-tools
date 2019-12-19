@@ -22,21 +22,19 @@ test("それは row によって生成された空間を配列として返す", 
 
 test("toString", () => {
   const map = new Map(5, 5);
+  const result = stripIndents`
+  1 0 0 0 1
+  0 0 0 0 0
+  0 0 0 0 0
+  0 0 0 0 0
+  1 0 0 0 1
+  `;
   map.fill(0);
   map.put(new Point(0, 0), 1);
   map.put(new Point(4, 0), 1);
   map.put(new Point(0, 4), 1);
   map.put(new Point(4, 4), 1);
-  assert(
-    `${map}` ===
-      stripIndents`
-  1 0 0 0 1
-  0 0 0 0 0
-  0 0 0 0 0
-  0 0 0 0 0
-  1 0 0 0 1
-  `
-  );
+  assert(`${map}` === result);
 });
 
 test("それが row によって返す配列は非破壊的である", () => {
