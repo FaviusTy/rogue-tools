@@ -20,6 +20,10 @@ test("同じx,yによって生成されたPointは常に同じインスタンス
   assert(c !== a && c !== b);
 });
 
+test("Point.toStringで適切な文字列が出力される", () => {
+  assert(new Point(12, 1).toString() === "Point{12,1}");
+});
+
 test("Point.add", () => {
   const pointA = new Point(10, 8);
   const pointB = new Point(1, 5);

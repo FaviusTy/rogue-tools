@@ -20,6 +20,10 @@ export default class Point {
     instanceCaches.set(`${x},${y}`, this);
   }
 
+  toString() {
+    return `Point{${this.key}}`;
+  }
+
   static lerp(start: Point, end: Point, t: number) {
     return new Point(lerp(start.x, end.x, t), lerp(start.y, end.y, t));
   }
