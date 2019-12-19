@@ -24,6 +24,16 @@ test("Point.toStringで適切な文字列が出力される", () => {
   assert(new Point(12, 1).toString() === "Point{12,1}");
 });
 
+test("Point.distanse で二点間の距離を求める", () => {
+  const base = new Point(0, 0);
+  assert(base.distanse(new Point(0, 5)) === 5);
+  assert(base.distanse(new Point(5, 0)) === 5);
+  assert(base.distanse(new Point(4, 3)) === 5);
+  assert(base.distanse(new Point(-4, -3)) === 5);
+  assert(base.distanse(new Point(0, 0)) === 0);
+  assert(Math.floor(base.distanse(new Point(5, 5))) === 7);
+});
+
 test("Point.add", () => {
   const pointA = new Point(10, 8);
   const pointB = new Point(1, 5);
