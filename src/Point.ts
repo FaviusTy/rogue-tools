@@ -10,14 +10,18 @@ type Privates = {
   key: string;
 };
 
+function key(x: number, y: number) {
+  return `${x},${y}`;
+}
+
 export default class Point {
   constructor(x: number = 0, y: number = 0) {
-    const cache = instanceCaches.get(`${x},${y}`);
+    const cache = instanceCaches.get(key(x, y));
     if (cache) {
       return cache;
     }
-    privates.set(this, { x: x, y: y, key: `${x},${y}` });
-    instanceCaches.set(`${x},${y}`, this);
+    privates.set(this, { x: x, y: y, key: key(x, y) });
+    instanceCaches.set(key(x, y), this);
   }
 
   toString() {
