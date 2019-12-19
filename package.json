@@ -18,7 +18,6 @@
     "common-tags": "1.8.0",
     "cross-env": "6.0.3",
     "espower-loader": "1.2.2",
-    "fixpack": "2.3.1",
     "jest": "24.9.0",
     "power-assert": "1.6.1",
     "typescript": "3.7.3",
@@ -30,7 +29,6 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production babel src --out-dir out --extensions '.ts' --ignore 'src/**/test'",
-    "fixpack": "fixpack",
     "test": "jest --runInBand",
     "typesync": "typesync"
   }
