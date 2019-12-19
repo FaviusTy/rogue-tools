@@ -1,4 +1,5 @@
 import assert from "power-assert";
+import { stripIndents } from "common-tags";
 import range from "../utils/range";
 import Point from "../Point";
 import Map from "../Map";
@@ -17,6 +18,23 @@ test("それは width と height を参照できる", () => {
 test("それは row によって生成された空間を配列として返す", () => {
   const map = new Map(5, 5);
   assert(map.raw.length === 5 * 5);
+});
+
+test("toString", () => {
+  const map = new Map(5, 5);
+  const result = stripIndents`
+  1 0 0 0 1
+  0 0 0 0 0
+  0 0 0 0 0
+  0 0 0 0 0
+  1 0 0 0 1
+  `;
+  map.fill(0);
+  map.put(new Point(0, 0), 1);
+  map.put(new Point(4, 0), 1);
+  map.put(new Point(0, 4), 1);
+  map.put(new Point(4, 4), 1);
+  assert(`${map}` === result);
 });
 
 test("それが row によって返す配列は非破壊的である", () => {

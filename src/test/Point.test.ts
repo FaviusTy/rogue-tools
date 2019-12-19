@@ -7,7 +7,7 @@ test("Point は引数 x, y の値を持つ", () => {
   assert(point.y === 2);
 });
 
-test("Point.key() でシリアライズされた文字列を受け取れる", () => {
+test("Point.key でシリアライズされた文字列を受け取れる", () => {
   const point = new Point(10, 15);
   assert("10,15" === point.key);
 });
@@ -18,6 +18,21 @@ test("同じx,yによって生成されたPointは常に同じインスタンス
   const c = new Point(1, 2);
   assert(a === b);
   assert(c !== a && c !== b);
+});
+
+test("Point.toStringで適切な文字列が出力される", () => {
+  const point = new Point(12, 1);
+  assert(`${point}` === "Point{12,1}");
+});
+
+test("Point.distanse で二点間の距離を求める", () => {
+  const base = new Point(0, 0);
+  assert(base.distanse(new Point(0, 5)) === 5);
+  assert(base.distanse(new Point(5, 0)) === 5);
+  assert(base.distanse(new Point(4, 3)) === 5);
+  assert(base.distanse(new Point(-4, -3)) === 5);
+  assert(base.distanse(new Point(0, 0)) === 0);
+  assert(Math.floor(base.distanse(new Point(5, 5))) === 7);
 });
 
 test("Point.add", () => {

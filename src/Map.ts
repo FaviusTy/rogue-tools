@@ -2,6 +2,7 @@ import either from "./utils/either";
 import PrivateFields from "./utils/PrivateFields";
 import { rect } from "./matrix";
 import Point from "./Point";
+import range from "./utils/range";
 
 type Privates = {
   width: number;
@@ -31,6 +32,19 @@ export default class Map<E> {
       height: height,
       raw: new Array<E | undefined>(width * height)
     });
+  }
+
+  toString() {
+    const raw = this.raw;
+    return range(this.height, 1)
+      .map(y => this.width * y)
+      .map(endX => {
+        return raw
+          .slice(endX - this.width, endX)
+          .map(item => `${item}`)
+          .join(" ");
+      })
+      .join("\n");
   }
 
   get width(): number {
