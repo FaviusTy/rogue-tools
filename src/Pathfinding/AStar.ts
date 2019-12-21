@@ -1,3 +1,9 @@
+/**
+ * This code is based on the following repository
+ * https://github.com/qiao/PathFinding.js
+ *
+ */
+
 import Heap from "heap";
 import {
   DiagonalMovement,
