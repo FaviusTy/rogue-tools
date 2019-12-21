@@ -54,27 +54,165 @@ test("flat routing: Always", () => {
 });
 
 test("diagonal move: Never", () => {
-  const map = new Map<number>(2, 2);
-  const matcher = stripIndents`
-  1 1
-  0 1
-  `;
+  const map = new Map<number | "*">(2, 2);
   map.fill(0);
-  const aster = new AStar({});
-  const result = aster.findPath(new Point(0, 0), new Point(1, 1), map);
-  result.forEach(point => map.put(point, 1));
-  assert(`${map}` === matcher);
+  const aster = new AStar({ walkable: e => e === 0 });
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* *
+                   0 *`
+  );
+
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  map.put(new Point(0, 1), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`0 1
+                   1 0`
+  );
+
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 1
+                   * *`
+  );
 });
 
 test("diagonal move: Always", () => {
-  const map = new Map<number>(2, 2);
-  const matcher = stripIndents`
-  1 0
-  0 1
-  `;
+  const map = new Map<number | "*">(2, 2);
   map.fill(0);
-  const aster = new AStar({ diagonalMovement: Always });
-  const result = aster.findPath(new Point(0, 0), new Point(1, 1), map);
-  result.forEach(point => map.put(point, 1));
-  assert(`${map}` === matcher);
+  const aster = new AStar({ diagonalMovement: Always, walkable: e => e === 0 });
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 0
+                   0 *`
+  );
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  map.put(new Point(0, 1), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 1
+                   1 *`
+  );
+});
+
+test("diagonal move: IfAtMostOneObstacle", () => {
+  const map = new Map<number | "*">(2, 2);
+  map.fill(0);
+  const aster = new AStar({
+    diagonalMovement: IfAtMostOneObstacle,
+    walkable: e => e === 0
+  });
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 0
+                   0 *`
+  );
+
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  map.put(new Point(0, 1), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`0 1
+                   1 0`
+  );
+
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 1
+                   0 *`
+  );
+
+  map.fill(0);
+  map.put(new Point(0, 1), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 0
+                   1 *`
+  );
+});
+
+test("diagonal move: OnlyWhenNoObstacles", () => {
+  const map = new Map<number | "*">(2, 2);
+  map.fill(0);
+  const aster = new AStar({
+    diagonalMovement: OnlyWhenNoObstacles,
+    walkable: e => e === 0
+  });
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 0
+                   0 *`
+  );
+
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  map.put(new Point(0, 1), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`0 1
+                   1 0`
+  );
+
+  map.fill(0);
+  map.put(new Point(1, 0), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* 1
+                   * *`
+  );
+
+  map.fill(0);
+  map.put(new Point(0, 1), 1);
+  aster
+    .findPath(new Point(0, 0), new Point(1, 1), map)
+    .forEach(point => map.put(point, "*"));
+  assert(
+    `${map}` ===
+      stripIndents`* *
+                   1 *`
+  );
 });

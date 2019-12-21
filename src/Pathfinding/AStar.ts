@@ -14,11 +14,11 @@ import NodeBucket from "./NodeBucket";
 import Neighbors from "../Neighbors";
 import exists from "../utils/exsits";
 
-function defaultWalkable<T>(entity?: T) {
+function defaultWalkable(entity?: any) {
   return exists(entity);
 }
 
-function defaultCalcCost<T>(entity: T) {
+function defaultCalcCost(entity: any) {
   return entity && typeof entity === "number" ? entity : 1;
 }
 
@@ -117,7 +117,7 @@ export default class AStar {
       for (const neighbor of neighbors.filter(
         (_, index): _ is Node => walkables[index]
       )) {
-        if (neighbor.closed) continue;
+        if (!neighbor || neighbor.closed) continue;
         const { x, y } = neighbor;
 
         // get the distance between current node and the neighbor
