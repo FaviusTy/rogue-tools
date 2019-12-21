@@ -13,7 +13,7 @@ import {
   diagonalWalkable
 } from "./DiagonalMovement";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
-import Map from "../Map";
+import DataGrid from "../DataGrid";
 import Point from "../Point";
 import Node from "./Node";
 import NodeBucket from "./NodeBucket";
@@ -79,7 +79,7 @@ export default class AStar {
    * @return {Point[]} The path, including both start and
    *     end positions.
    */
-  findPath<E>(start: Point, end: Point, grid: Map<E>): Point[] {
+  findPath<E>(start: Point, end: Point, grid: DataGrid<E>): Point[] {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
       return nodeA.cost - nodeB.cost;
     });

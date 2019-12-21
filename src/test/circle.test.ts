@@ -1,4 +1,4 @@
-import Map from "../Map";
+import DataGrid from "../DataGrid";
 import { rect } from "../matrix";
 import Point from "../Point";
 import { insideCircle, beautifyRadius } from "../circle";
@@ -19,7 +19,7 @@ test("円の範囲内のPointを求める", () => {
     new Point(5, 6),
     new Point(6, 6)
   ];
-  const box = new Map<number>(7, 7);
+  const box = new DataGrid<number>(7, 7);
   const center = new Point(3, 3);
   box.fill(0);
   const boxPoints = rect(new Point(0, 0), 7, 7);

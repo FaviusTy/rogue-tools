@@ -1,7 +1,7 @@
 import assert from "power-assert";
 import { stripIndents } from "common-tags";
 import AStar from "../AStar";
-import Map from "../../Map";
+import DataGrid from "../../DataGrid";
 import Point from "../../Point";
 import {
   DiagonalMovement,
@@ -18,7 +18,7 @@ test("Astar", () => {
 });
 
 test("flat routing: Never", () => {
-  const map = new Map<number>(5, 7);
+  const map = new DataGrid<number>(5, 7);
   const matcher = stripIndents`
   1 1 1 1 1
   0 0 0 0 1
@@ -36,7 +36,7 @@ test("flat routing: Never", () => {
 });
 
 test("flat routing: Always", () => {
-  const map = new Map<number>(5, 7);
+  const map = new DataGrid<number>(5, 7);
   const matcher = stripIndents`
   1 0 0 0 0
   0 1 0 0 0
@@ -54,7 +54,7 @@ test("flat routing: Always", () => {
 });
 
 test("diagonal move: Never", () => {
-  const map = new Map<number | "*">(2, 2);
+  const map = new DataGrid<number | "*">(2, 2);
   map.fill(0);
   const aster = new AStar({ walkable: e => e === 0 });
   aster
@@ -91,7 +91,7 @@ test("diagonal move: Never", () => {
 });
 
 test("diagonal move: Always", () => {
-  const map = new Map<number | "*">(2, 2);
+  const map = new DataGrid<number | "*">(2, 2);
   map.fill(0);
   const aster = new AStar({ diagonalMovement: Always, walkable: e => e === 0 });
   aster
@@ -116,7 +116,7 @@ test("diagonal move: Always", () => {
 });
 
 test("diagonal move: IfAtMostOneObstacle", () => {
-  const map = new Map<number | "*">(2, 2);
+  const map = new DataGrid<number | "*">(2, 2);
   map.fill(0);
   const aster = new AStar({
     diagonalMovement: IfAtMostOneObstacle,
@@ -167,7 +167,7 @@ test("diagonal move: IfAtMostOneObstacle", () => {
 });
 
 test("diagonal move: OnlyWhenNoObstacles", () => {
-  const map = new Map<number | "*">(2, 2);
+  const map = new DataGrid<number | "*">(2, 2);
   map.fill(0);
   const aster = new AStar({
     diagonalMovement: OnlyWhenNoObstacles,
