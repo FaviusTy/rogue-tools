@@ -5,13 +5,7 @@
  */
 
 import Heap from "heap";
-import {
-  DiagonalMovement,
-  Never,
-  OnlyWhenNoObstacles,
-  IfAtMostOneObstacle,
-  diagonalWalkable
-} from "./DiagonalMovement";
+import { DiagonalMovement, Never, diagonalWalkable } from "./DiagonalMovement";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
 import DataGrid from "../DataGrid";
 import Point from "../Point";
