@@ -1,6 +1,6 @@
 import assert from "power-assert";
 import range from "../utils/range";
-import Point from "../Point";
+import Point, { point } from "../Point";
 import { isMatrix, row, column, rect, line } from "../matrix";
 
 test("matrix とは各要素がPointだけで構成された配列である", () => {
@@ -49,16 +49,16 @@ test("それは rect によって引数で指定した Point を基点として 
 });
 
 test("それは line によって引数でした2点間の Point を結ぶ直線上に位置する全ての Point を含む Array<Point> を返す", () => {
-  const result = line(new Point(1, 1), new Point(8, 7));
+  const result = line(point(1, 1), point(8, 7));
   const answer = [
-    new Point(1, 1),
-    new Point(2, 2),
-    new Point(3, 3),
-    new Point(4, 4),
-    new Point(5, 4),
-    new Point(6, 5),
-    new Point(7, 6),
-    new Point(8, 7)
+    point(1, 1),
+    point(2, 2),
+    point(3, 3),
+    point(4, 4),
+    point(5, 4),
+    point(6, 5),
+    point(7, 6),
+    point(8, 7)
   ];
   result.forEach((point, index) => {
     assert(point.key === answer[index].key);

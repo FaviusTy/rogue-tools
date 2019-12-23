@@ -1,23 +1,23 @@
 import DataGrid from "../DataGrid";
 import { rect } from "../matrix";
-import Point from "../Point";
+import Point, { point } from "../Point";
 import { insideCircle, beautifyRadius } from "../circle";
 import assert from "power-assert";
 
 test("円の範囲内のPointを求める", () => {
   const outsides = [
-    new Point(0, 0),
-    new Point(1, 0),
-    new Point(5, 0),
-    new Point(6, 0),
-    new Point(0, 1),
-    new Point(6, 1),
-    new Point(0, 5),
-    new Point(6, 5),
-    new Point(0, 6),
-    new Point(1, 6),
-    new Point(5, 6),
-    new Point(6, 6)
+    point(0, 0),
+    point(1, 0),
+    point(5, 0),
+    point(6, 0),
+    point(0, 1),
+    point(6, 1),
+    point(0, 5),
+    point(6, 5),
+    point(0, 6),
+    point(1, 6),
+    point(5, 6),
+    point(6, 6)
   ];
   const box = new DataGrid<number>(7, 7);
   const center = new Point(3, 3);

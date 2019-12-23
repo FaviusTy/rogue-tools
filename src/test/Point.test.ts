@@ -1,5 +1,5 @@
 import assert from "power-assert";
-import Point from "../Point";
+import Point, { point } from "../Point";
 
 test("Point は引数 x, y の値を持つ", () => {
   const point = new Point(1, 2);
@@ -13,9 +13,9 @@ test("Point.key でシリアライズされた文字列を受け取れる", () =
 });
 
 test("同じx,yによって生成されたPointは常に同じインスタンスとなる", () => {
-  const a = new Point(1, 1);
-  const b = new Point(1, 1);
-  const c = new Point(1, 2);
+  const a = point(1, 1);
+  const b = point(1, 1);
+  const c = point(1, 2);
   assert(a === b);
   assert(c !== a && c !== b);
 });
@@ -27,12 +27,12 @@ test("Point.toStringで適切な文字列が出力される", () => {
 
 test("Point.distanse で二点間の距離を求める", () => {
   const base = new Point(0, 0);
-  assert(base.distanse(new Point(0, 5)) === 5);
-  assert(base.distanse(new Point(5, 0)) === 5);
-  assert(base.distanse(new Point(4, 3)) === 5);
-  assert(base.distanse(new Point(-4, -3)) === 5);
-  assert(base.distanse(new Point(0, 0)) === 0);
-  assert(Math.floor(base.distanse(new Point(5, 5))) === 7);
+  assert(base.distanse(point(0, 5)) === 5);
+  assert(base.distanse(point(5, 0)) === 5);
+  assert(base.distanse(point(4, 3)) === 5);
+  assert(base.distanse(point(-4, -3)) === 5);
+  assert(base.distanse(point(0, 0)) === 0);
+  assert(Math.floor(base.distanse(point(5, 5))) === 7);
 });
 
 test("Point.add", () => {
@@ -61,16 +61,16 @@ test("Point.div", () => {
 
 test("Point.sort", () => {
   const points = [
-    new Point(19, 2),
-    new Point(19, 0),
-    new Point(19, 2),
-    new Point(1, 20),
-    new Point(0, 0)
+    point(19, 2),
+    point(19, 0),
+    point(19, 2),
+    point(1, 20),
+    point(0, 0)
   ];
   const result = points.sort(Point.sort);
-  assert(result[0] === new Point(0, 0));
-  assert(result[1] === new Point(1, 20));
-  assert(result[2] === new Point(19, 0));
-  assert(result[3] === new Point(19, 2));
-  assert(result[4] === new Point(19, 2));
+  assert(result[0] === point(0, 0));
+  assert(result[1] === point(1, 20));
+  assert(result[2] === point(19, 0));
+  assert(result[3] === point(19, 2));
+  assert(result[4] === point(19, 2));
 });
