@@ -28,6 +28,13 @@ export default class Point {
     return `Point{${this.key}}`;
   }
 
+  static sort(a: Point, b: Point) {
+    const diff = a.sub(b);
+    if (diff.x === 0 && diff.y === 0) return 0;
+    if (diff.x !== 0) return diff.x;
+    return diff.y;
+  }
+
   static lerp(start: Point, end: Point, t: number) {
     return new Point(lerp(start.x, end.x, t), lerp(start.y, end.y, t));
   }

@@ -58,3 +58,19 @@ test("Point.div", () => {
   const pointB = new Point(3, 7);
   assert("4,6.428571428571429" === pointA.div(pointB).key);
 });
+
+test("Point.sort", () => {
+  const points = [
+    new Point(19, 2),
+    new Point(19, 0),
+    new Point(19, 2),
+    new Point(1, 20),
+    new Point(0, 0)
+  ];
+  const result = points.sort(Point.sort);
+  assert(result[0] === new Point(0, 0));
+  assert(result[1] === new Point(1, 20));
+  assert(result[2] === new Point(19, 0));
+  assert(result[3] === new Point(19, 2));
+  assert(result[4] === new Point(19, 2));
+});
