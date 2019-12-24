@@ -1,6 +1,6 @@
 import PrivateFields from "./utils/PrivateFields";
 import lerp from "./utils/lerp";
-const { abs, round, sqrt, pow } = Math;
+const { abs, round, sqrt, pow, floor } = Math;
 const instanceCaches = new Map<string, Point>();
 const privates = new PrivateFields<Point, Privates>();
 
@@ -61,6 +61,10 @@ export default class Point {
 
   get round() {
     return new Point(round(this.x), round(this.y));
+  }
+
+  get floor() {
+    return new Point(floor(this.x), floor(this.y));
   }
 
   distanse(point: Point) {
