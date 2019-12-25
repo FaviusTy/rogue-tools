@@ -34,7 +34,7 @@ export function rect(point: Point, width: number = 1, height: number = 1) {
 export function circle(center: Point, radius: number) {
   const intRadius = floor(radius);
   const origin = center.sub(point(intRadius, intRadius));
-  const side = intRadius * 2;
+  const side = intRadius * 2 + 1;
   return rect(origin, side, side).filter(point =>
     insideCircle(center, point, radius)
   );

@@ -1,4 +1,5 @@
 import assert from "power-assert";
+import { stripIndents } from "common-tags";
 import range from "../utils/range";
 import Point, { point } from "../Point";
 import DataGrid from "../DataGrid";
@@ -7,6 +8,7 @@ import {
   row,
   column,
   rect,
+  circle,
   line,
   beautifyRadius,
   insideCircle
@@ -75,7 +77,21 @@ test("それは line によって引数でした2点間の Point を結ぶ直線
 });
 
 test("circle", () => {
-  //TODO
+  const data = new DataGrid(9, 9);
+  const matcher = stripIndents`
+  0 0 1 1 1 1 1 0 0
+  0 1 1 1 1 1 1 1 0
+  1 1 1 1 1 1 1 1 1
+  1 1 1 1 1 1 1 1 1
+  1 1 1 1 1 1 1 1 1
+  1 1 1 1 1 1 1 1 1
+  1 1 1 1 1 1 1 1 1
+  0 1 1 1 1 1 1 1 0
+  0 0 1 1 1 1 1 0 0
+  `;
+  data.fill(0);
+  circle(point(4, 4), 4.5).forEach(point => data.put(point, 1));
+  assert(`${data}` === matcher);
 });
 
 test("円の範囲内のPointを求める", () => {
