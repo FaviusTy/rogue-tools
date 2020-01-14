@@ -1,9 +1,13 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-typescript", "power-assert"],
+  "presets": [
+    "@babel/preset-modules",
+    "@babel/preset-typescript",
+    "power-assert"
+  ],
   "env": {
     "production": {
       "presets": [
-        ["@babel/preset-env", { "modules": false }],
+        "@babel/preset-modules",
         "@babel/preset-typescript",
         "power-assert"
       ]
