@@ -22,7 +22,7 @@
     "espower-loader": "1.2.2",
     "jest": "24.9.0",
     "power-assert": "1.6.1",
-    "snowpack": "1.0.4",
+    "snowpack": "1.0.5",
     "typescript": "3.7.4",
     "typesync": "0.6.1",
     "utility-types": "3.10.0"

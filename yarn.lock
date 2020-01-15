@@ -2473,6 +2473,11 @@ fill-range@^4.0.0:
     repeat-string "^1.6.1"
     to-regex-range "^2.1.0"
 
+find-package-json@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/find-package-json/-/find-package-json-1.2.0.tgz#4057d1b943f82d8445fe52dc9cf456f6b8b58083"
+  integrity sha512-+SOGcLGYDJHtyqHd87ysBhmaeQ95oWspDKnMXBrnQ9Eq4OkLNqejgoaD8xVWu6GPa0B6roa6KinCMEMcVeqONw==
+
 find-up@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/find-up/-/find-up-3.0.0.tgz#49169f1d7993430646da61ecc5ae355c21c97b73"
@@ -4659,10 +4664,10 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-snowpack@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-1.0.4.tgz#3e487361b90cf0bf2899e83fbd7afe8a4015076b"
-  integrity sha512-9rMTYbo79S2lQGku3tTq5SyAISuZnABLmpnMmachMzo4Ur9cdWMX03pCWanYx2SRGG4O//qgorCD3OOpAT19WA==
+snowpack@1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/snowpack/-/snowpack-1.0.5.tgz#fdafd80f140b73472e9954ee351fd73f33330fa0"
+  integrity sha512-LVJQtRw04xg8t6E3YavjrUlxzcPND+8aJonBoM1F8i1P8HCqwTqg29dr2Rie1DsZJa/D0AzdBFhhLD3KlmlV1g==
   dependencies:
     "@babel/core" "^7.6.4"
     "@babel/parser" "^7.6.4"
@@ -4675,6 +4680,7 @@ snowpack@1.0.4:
     "@rollup/plugin-replace" "^2.1.0"
     chalk "^3.0.0"
     dir-compare "^1.8.0"
+    find-package-json "^1.2.0"
     glob "^7.1.4"
     is-builtin-module "^3.0.0"
     mkdirp "^0.5.1"
