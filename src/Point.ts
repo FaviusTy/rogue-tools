@@ -1,5 +1,5 @@
-import PrivateFields from "./utils/PrivateFields";
-import lerp from "./utils/lerp";
+import PrivateFields from "./utils/PrivateFields.js";
+import lerp from "./utils/lerp.js";
 const { abs, round, sqrt, pow, floor } = Math;
 const instanceCaches = new Map<string, Point>();
 const privates = new PrivateFields<Point, Privates>();

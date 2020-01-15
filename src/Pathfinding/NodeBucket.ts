@@ -1,5 +1,5 @@
-import Point from "../Point";
-import Node from "./Node";
+import Point from "../Point.js";
+import Node from "./Node.js";
 
 export default class NodeBucket {
   nodes: Node[];

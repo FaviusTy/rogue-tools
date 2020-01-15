@@ -1,4 +1,4 @@
-import DataGrid from "../../DataGrid";
+import DataGrid from "../../DataGrid.js";
 
 const privates = new WeakMap();
 

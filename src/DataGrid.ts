@@ -1,8 +1,8 @@
-import either from "./utils/either";
-import PrivateFields from "./utils/PrivateFields";
-import { rect } from "./matrix";
-import Point from "./Point";
-import range from "./utils/range";
+import either from "./utils/either.js";
+import PrivateFields from "./utils/PrivateFields.js";
+import { rect } from "./matrix.js";
+import Point from "./Point.js";
+import range from "./utils/range.js";
 
 type Privates = {
   width: number;

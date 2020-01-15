@@ -1,6 +1,6 @@
-import Point from "./Point";
-import PriveteFields from "./utils/PrivateFields";
-import exists from "./utils/exsits";
+import Point from "./Point.js";
+import PriveteFields from "./utils/PrivateFields.js";
+import exists from "./utils/exsits.js";
 
 type Edges = 4 | 8;
 

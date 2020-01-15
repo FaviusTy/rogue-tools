@@ -1,4 +1,4 @@
-import Point from "../Point";
+import Point from "../Point.js";
 
 export const NONE = 0 as const;
 export const OPEN = 1 as const;

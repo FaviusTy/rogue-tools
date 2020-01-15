@@ -1,5 +1,5 @@
-import range from "./utils/range";
-import Point, { point } from "./Point";
+import range from "./utils/range.js";
+import Point, { point } from "./Point.js";
 
 const { floor } = Math;
 

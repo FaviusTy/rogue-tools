@@ -5,14 +5,18 @@
  */
 
 import Heap from "heap-js";
-import { DiagonalMovement, Never, diagonalWalkable } from "./DiagonalMovement";
-import Heuristic, { HeuristicFunc } from "./Heuristic";
-import DataGrid from "../DataGrid";
-import Point from "../Point";
-import Node from "./Node";
-import NodeBucket from "./NodeBucket";
-import Neighbors from "../Neighbors";
-import exists from "../utils/exsits";
+import {
+  DiagonalMovement,
+  Never,
+  diagonalWalkable
+} from "./DiagonalMovement.js";
+import Heuristic, { HeuristicFunc } from "./Heuristic.js";
+import DataGrid from "../DataGrid.js";
+import Point from "../Point.js";
+import Node from "./Node.js";
+import NodeBucket from "./NodeBucket.js";
+import Neighbors from "../Neighbors.js";
+import exists from "../utils/exsits.js";
 
 function defaultWalkable(entity?: any) {
   return exists(entity);
