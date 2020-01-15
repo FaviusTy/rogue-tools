@@ -4,7 +4,7 @@
  *
  */
 
-import Heap from "heap";
+import Heap from "heap-js";
 import { DiagonalMovement, Never, diagonalWalkable } from "./DiagonalMovement";
 import Heuristic, { HeuristicFunc } from "./Heuristic";
 import DataGrid from "../DataGrid";
@@ -75,6 +75,7 @@ export default class AStar {
    */
   findPath<E>(start: Point, end: Point, grid: DataGrid<E>): Point[] {
     const openList = new Heap((nodeA: Node, nodeB: Node) => {
+      if (!nodeA || !nodeB) return 0;
       return nodeA.cost - nodeB.cost;
     });
     const startNode = new Node(start);
@@ -85,13 +86,14 @@ export default class AStar {
     startNode.g_cost = 0;
 
     // push the start node into the open list
-    openList.push(startNode);
+    openList.init([startNode]);
     startNode.open();
 
     // while the open list is not empty
-    while (!openList.empty()) {
+    while (!openList.isEmpty()) {
       // pop the position of node which has the minimum `f` value.
       const node = openList.pop();
+      if (!node) break;
       node.close();
 
       // if reached the end position, construct the path and return it
@@ -144,7 +146,8 @@ export default class AStar {
           // the neighbor can be reached with smaller cost.
           // Since its f value has been updated, we have to
           // update its position in the open list
-          openList.updateItem(neighbor);
+          // openList.updateItem(neighbor);
+          openList.comparator();
         }
       }
     }
