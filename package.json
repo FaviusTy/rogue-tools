@@ -23,7 +23,7 @@
     "jest": "24.9.0",
     "power-assert": "1.6.1",
     "snowpack": "1.0.4",
-    "typescript": "3.7.4",
+    "typescript": "3.7.5",
     "typesync": "0.6.1",
     "utility-types": "3.10.0"
   },
