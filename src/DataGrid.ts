@@ -2,7 +2,7 @@ import either from "@favi_ty/either";
 import PrivateFields from "./utils/PrivateFields.js";
 import { rect } from "./matrix.js";
 import Point from "./Point.js";
-import range from "./utils/range.js";
+import range from "@favi_ty/range";
 
 type Privates = {
   width: number;

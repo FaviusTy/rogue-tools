@@ -907,10 +907,15 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
-"@favi_ty/either@^1.0.0":
+"@favi_ty/either@1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@favi_ty/either/-/either-1.0.0.tgz#d0e96849de6530a32676dba8fcc69c3a11d70bfb"
   integrity sha512-cNw38lFEopRjrlutnULjzi9IQ+gosHXXWOkpItJz2cjrGpnQWquYjrY0Xw5HGvMI4myGoqZVxnjx4nQHipS5YQ==
+
+"@favi_ty/range@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@favi_ty/range/-/range-1.0.1.tgz#6d20daf9a034924e780d6732e3a1c376241f44ce"
+  integrity sha512-x2jLXPHm6s1K+s3E8HlBPYqjCNd1LtR1zLzZDimIhojn/qN9Qg5mju80t5TONSdKLfwg7ObVJ9Syz/9wTwBq3g==
 
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"

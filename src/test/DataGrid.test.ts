@@ -1,6 +1,6 @@
 import assert from "power-assert";
 import { stripIndents } from "common-tags";
-import range from "../utils/range";
+import range from "@favi_ty/range";
 import Point from "../Point";
 import DataGrid from "../DataGrid";
 

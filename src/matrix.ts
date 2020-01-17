@@ -1,4 +1,4 @@
-import range from "./utils/range.js";
+import range from "@favi_ty/range";
 import Point, { point } from "./Point.js";
 
 const { floor } = Math;
