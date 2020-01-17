@@ -2,8 +2,7 @@
   "presets": ["@babel/preset-env", "@babel/preset-typescript", "power-assert"],
   "env": {
     "production": {
-      "presets": [["@babel/preset-env", { "modules": false }]],
-      "plugins": [["snowpack/assets/babel-plugin.js", { "dir": "modules" }]]
+      "presets": [["@babel/preset-env", { "modules": false }]]
     }
   }
 }
