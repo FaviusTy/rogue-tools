@@ -2,6 +2,7 @@
   "name": "@favity/rogue-tools",
   "version": "1.0.0",
   "dependencies": {
+    "@favi_ty/either": "1.0.0",
     "heap-js": "1.4.1"
   },
   "devDependencies": {

@@ -907,6 +907,11 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@favi_ty/either@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@favi_ty/either/-/either-1.0.0.tgz#d0e96849de6530a32676dba8fcc69c3a11d70bfb"
+  integrity sha512-cNw38lFEopRjrlutnULjzi9IQ+gosHXXWOkpItJz2cjrGpnQWquYjrY0Xw5HGvMI4myGoqZVxnjx4nQHipS5YQ==
+
 "@jest/console@^24.7.1", "@jest/console@^24.9.0":
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/@jest/console/-/console-24.9.0.tgz#79b1bc06fb74a8cfb01cbdedf945584b1b9707f0"

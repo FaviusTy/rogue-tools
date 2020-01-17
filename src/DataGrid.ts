@@ -1,4 +1,4 @@
-import either from "./utils/either.js";
+import either from "@favi_ty/either";
 import PrivateFields from "./utils/PrivateFields.js";
 import { rect } from "./matrix.js";
 import Point from "./Point.js";
