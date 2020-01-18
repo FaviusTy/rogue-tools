@@ -1,4 +1,4 @@
-import PrivateFields from "./utils/PrivateFields.js";
+import PrivateFields from "@favi_ty/private-fields";
 import lerp from "./utils/lerp.js";
 const { abs, round, sqrt, pow, floor } = Math;
 const instanceCaches = new Map<string, Point>();

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "dependencies": {
     "@favi_ty/either": "1.0.0",
+    "@favi_ty/private-fields": "1.0.0",
     "@favi_ty/range": "1.0.1",
     "heap-js": "1.4.1"
   },

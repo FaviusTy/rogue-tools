@@ -1,5 +1,5 @@
 import either from "@favi_ty/either";
-import PrivateFields from "./utils/PrivateFields.js";
+import PrivateFields from "@favi_ty/private-fields";
 import { rect } from "./matrix.js";
 import Point from "./Point.js";
 import range from "@favi_ty/range";

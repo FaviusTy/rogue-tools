@@ -912,6 +912,11 @@
   resolved "https://registry.yarnpkg.com/@favi_ty/either/-/either-1.0.0.tgz#d0e96849de6530a32676dba8fcc69c3a11d70bfb"
   integrity sha512-cNw38lFEopRjrlutnULjzi9IQ+gosHXXWOkpItJz2cjrGpnQWquYjrY0Xw5HGvMI4myGoqZVxnjx4nQHipS5YQ==
 
+"@favi_ty/private-fields@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@favi_ty/private-fields/-/private-fields-1.0.0.tgz#14d9b7831e497255df49bbf72cc3b07efb4abf03"
+  integrity sha512-nMQv02fchZXWKBKORTDBCIZnuxtE80ID4rkPKC35wCj7OQTNkRNFu7dnnj6bEI6IDkQqwxeVrZ3+h4dIDPFiQw==
+
 "@favi_ty/range@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@favi_ty/range/-/range-1.0.1.tgz#6d20daf9a034924e780d6732e3a1c376241f44ce"
