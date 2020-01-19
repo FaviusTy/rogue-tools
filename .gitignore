@@ -1,5 +1,5 @@
 ### local settings.
-
+dist/
 examples/game.js
 examples/game.js.map
 package-lock.json
