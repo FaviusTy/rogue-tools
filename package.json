@@ -38,10 +38,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rm -rf dist/ && yarn build:types && yarn build:module && yarn minify",
-    "build:module": "cross-env NODE_ENV=production babel rogue-tools.ts -o dist/rogue-tools.js --extensions '.ts' --ignore 'src/**/test'",
-    "build:types": "tsc --emitDeclarationOnly",
-    "minify": "terser dist/rogue-tools.js --compress --source-map --mangle --output dist/rogue-tools.js",
+    "build": "microbundle",
     "test": "jest --runInBand"
   },
   "source": "src/index.ts",
