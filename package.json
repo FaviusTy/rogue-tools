@@ -23,6 +23,7 @@
     "cross-env": "6.0.3",
     "espower-loader": "1.2.2",
     "jest": "24.9.0",
+    "microbundle": "0.11.0",
     "power-assert": "1.6.1",
     "terser": "4.6.3",
     "typescript": "3.7.5",
@@ -43,5 +44,7 @@
     "minify": "terser dist/rogue-tools.js --compress --source-map --mangle --output dist/rogue-tools.js",
     "test": "jest --runInBand"
   },
-  "types": "dist/types/rogue-tools.d.ts"
+  "source": "src/index.ts",
+  "types": "dist/rogue-tools.d.ts",
+  "umd:main": "dist/rogue-tools.umd.js"
 }
