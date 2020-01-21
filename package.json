@@ -1,6 +1,6 @@
 {
   "name": "@favity/rogue-tools",
-  "version": "1.0.0",
+  "version": "1.0.0-pre",
   "dependencies": {
     "@favi_ty/either": "1.0.0",
     "@favi_ty/private-fields": "1.0.0",
