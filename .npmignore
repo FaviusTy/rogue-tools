@@ -1,6 +1,6 @@
+.rts2_cache_*
 .vscode/
 examples/
-node_modules/
 .babelrc
 .browserslistrc
 .gitignore
