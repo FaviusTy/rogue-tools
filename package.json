@@ -1,6 +1,7 @@
 {
-  "name": "@favity/rogue-tools",
+  "name": "@favi_ty/rogue-tools",
   "version": "1.0.0-pre",
+  "author": "favi_ty <favius983@gmail.com>",
   "dependencies": {
     "@favi_ty/either": "1.0.0",
     "@favi_ty/private-fields": "1.0.0",
@@ -38,7 +39,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "microbundle",
+    "build": "cross-env NODE_ENV=producton microbundle",
     "test": "jest --runInBand"
   },
   "source": "src/index.ts",
