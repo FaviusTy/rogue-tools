@@ -3601,10 +3601,10 @@ has@^1.0.0, has@^1.0.1, has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-heap-js@1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/heap-js/-/heap-js-1.4.1.tgz#d74f38607aa9499cf9da5a6b0fbdd067594b4e7d"
-  integrity sha512-FzbDInEYubylb3um0RFbyqwrFTk/y7i1lGLbvykNazNYqfIZ/bMJ0KN/kQQfu30JZNE7XzHVlGez6F+hdy15Nw==
+heap-js@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/heap-js/-/heap-js-1.5.1.tgz#a8639b7e0934704d65e9fc9e71a0c504f9859df8"
+  integrity sha512-2R1W+upxX/AglppnDqAZF8aK1wFMZQyM8EgduSfWKQzP16YKiSi2pv6Xfhc86HKnE4626HEotZ1vUuHmgowSxA==
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
