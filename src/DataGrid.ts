@@ -1,7 +1,7 @@
 import either from "@favi_ty/either";
 import PrivateFields from "@favi_ty/private-fields";
-import { rect } from "./matrix.js";
-import Point from "./Point.js";
+import { rect } from "./matrix";
+import Point from "./Point";
 import range from "@favi_ty/range";
 
 type Privates = {

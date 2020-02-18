@@ -1,5 +1,5 @@
 import PrivateFields from "@favi_ty/private-fields";
-import lerp from "./utils/lerp.js";
+import lerp from "./utils/lerp";
 const { abs, round, sqrt, pow, floor } = Math;
 const instanceCaches = new Map<string, Point>();
 const privates = new PrivateFields<Point, Privates>();

@@ -1,3 +1,8 @@
 {
-  "presets": ["@babel/preset-env", "@babel/preset-typescript", "power-assert"]
+  "presets": ["@babel/preset-env", "@babel/preset-typescript"],
+  "env": {
+    "production": {
+      "plugins": ["@favi_ty/babel-plugin-esm-url-resolver"]
+    }
+  }
 }

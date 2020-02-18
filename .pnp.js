@@ -39,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.8.4"],
             ["@babel/preset-env", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:7.8.4"],
             ["@babel/preset-typescript", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:7.8.3"],
+            ["@favi_ty/babel-plugin-esm-url-resolver", "npm:1.2.2"],
             ["@favi_ty/either", "npm:1.0.0"],
             ["@favi_ty/private-fields", "npm:1.0.0"],
             ["@favi_ty/range", "npm:1.0.1"],
@@ -1625,6 +1626,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@favi_ty/babel-plugin-esm-url-resolver", [
+        ["npm:1.2.2", {
+          "packageLocation": "./.yarn/cache/@favi_ty-babel-plugin-esm-url-resolver-npm-1.2.2-a07d259280-2.zip/node_modules/@favi_ty/babel-plugin-esm-url-resolver/",
+          "packageDependencies": [
+            ["@favi_ty/babel-plugin-esm-url-resolver", "npm:1.2.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@favi_ty/either", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/@favi_ty-either-npm-1.0.0-68edf3196d-2.zip/node_modules/@favi_ty/either/",
@@ -1661,6 +1671,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/core", "npm:7.8.4"],
             ["@babel/preset-env", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:7.8.4"],
             ["@babel/preset-typescript", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:7.8.3"],
+            ["@favi_ty/babel-plugin-esm-url-resolver", "npm:1.2.2"],
             ["@favi_ty/either", "npm:1.0.0"],
             ["@favi_ty/private-fields", "npm:1.0.0"],
             ["@favi_ty/range", "npm:1.0.1"],

@@ -1,6 +1,6 @@
-import Point from "./Point.js";
+import Point from "./Point";
 import PriveteFields from "@favi_ty/private-fields";
-import exists from "./utils/exsits.js";
+import exists from "./utils/exsits";
 
 type Edges = 4 | 8;
 

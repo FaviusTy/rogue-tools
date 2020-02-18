@@ -1,4 +1,4 @@
-import { NeighborIndexes } from "../Neighbors.js";
+import { NeighborIndexes } from "../Neighbors";
 
 const { UP, RIGHT, BOTTOM, LEFT } = NeighborIndexes;
 

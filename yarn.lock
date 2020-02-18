@@ -1342,6 +1342,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@favi_ty/babel-plugin-esm-url-resolver@npm:1.2.2":
+  version: 1.2.2
+  resolution: "@favi_ty/babel-plugin-esm-url-resolver@npm:1.2.2"
+  checksum: 2/a1d689e785f6770b803f981062f3925bb82ec235a11e073b54db137aa870096c9c96bb86ced52ce41943a4a47a2d0fa8c44bacd1e4378ebb7ba74b74e6d39a67
+  languageName: node
+  linkType: hard
+
 "@favi_ty/either@npm:1.0.0":
   version: 1.0.0
   resolution: "@favi_ty/either@npm:1.0.0"
@@ -1371,6 +1378,7 @@ __metadata:
     "@babel/core": 7.8.4
     "@babel/preset-env": 7.8.4
     "@babel/preset-typescript": 7.8.3
+    "@favi_ty/babel-plugin-esm-url-resolver": 1.2.2
     "@favi_ty/either": 1.0.0
     "@favi_ty/private-fields": 1.0.0
     "@favi_ty/range": 1.0.1
