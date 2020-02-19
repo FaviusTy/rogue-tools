@@ -56,6 +56,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["espower-loader", "npm:1.2.2"],
             ["heap-js", "npm:1.5.1"],
             ["jest", "npm:25.1.0"],
+            ["jest-pnp-resolver", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:1.2.1"],
             ["microbundle", "npm:0.11.0"],
             ["power-assert", "npm:1.6.1"],
             ["terser", "npm:4.6.3"],
@@ -1688,6 +1689,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["espower-loader", "npm:1.2.2"],
             ["heap-js", "npm:1.5.1"],
             ["jest", "npm:25.1.0"],
+            ["jest-pnp-resolver", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:1.2.1"],
             ["microbundle", "npm:0.11.0"],
             ["power-assert", "npm:1.6.1"],
             ["terser", "npm:4.6.3"],
@@ -6717,6 +6719,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["jest-pnp-resolver", "virtual:2276a075e44bd1979ed769570a84aa5ce439c4ceb3d2f789e832a1c8819249627e09595f35bbe99dd2f69f0713982219e917412fb2c4c4dc7f3e5f4d37f5b734#npm:1.2.1"],
             ["jest-resolve", "npm:25.1.0"]
+          ],
+          "packagePeers": [
+            "jest-resolve"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:1.2.1", {
+          "packageLocation": "./.yarn/$$virtual/jest-pnp-resolver-virtual-1f4b6df8ff/0/cache/jest-pnp-resolver-npm-1.2.1-a4bd6191e1-2.zip/node_modules/jest-pnp-resolver/",
+          "packageDependencies": [
+            ["jest-pnp-resolver", "virtual:86dbfa9117f7c3499678cac7155db42991b8ba35e49257740223b69579a36e4cf532dd60f2e3c80ebd0bda9dcdfcbf4efe32aa04eb20063392a00557dfea27e1#npm:1.2.1"],
+            ["jest-resolve", null]
           ],
           "packagePeers": [
             "jest-resolve"

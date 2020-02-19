@@ -101,7 +101,7 @@ module.exports = {
   // resetModules: false,
 
   // A path to a custom resolver
-  // resolver: null,
+  resolver: require.resolve("jest-pnp-resolver"),
 
   // Automatically restore mock state between every test
   // restoreMocks: false,

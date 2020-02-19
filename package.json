@@ -26,6 +26,7 @@
     "cross-env": "7.0.0",
     "espower-loader": "1.2.2",
     "jest": "25.1.0",
+    "jest-pnp-resolver": "1.2.1",
     "microbundle": "0.11.0",
     "power-assert": "1.6.1",
     "terser": "4.6.3",
