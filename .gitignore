@@ -1,6 +1,7 @@
 ### local settings.
 .rts2_cache_*
 dist/
+js/
 examples/game.js
 examples/game.js.map
 package-lock.json
