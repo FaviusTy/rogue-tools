@@ -13,7 +13,7 @@
     "@babel/core": "7.8.4",
     "@babel/preset-env": "7.8.4",
     "@babel/preset-typescript": "7.8.3",
-    "@favi_ty/babel-plugin-esm-url-resolver": "1.2.2",
+    "@favi_ty/babel-plugin-esm-url-resolver": "1.2.3",
     "@types/babel__core": "7.1.4",
     "@types/common-tags": "1.8.0",
     "@types/heap": "0.2.28",
