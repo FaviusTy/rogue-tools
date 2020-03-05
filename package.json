@@ -23,7 +23,7 @@
     "babel-jest": "25.1.0",
     "babel-preset-power-assert": "3.0.0",
     "common-tags": "1.8.0",
-    "cross-env": "7.0.0",
+    "cross-env": "7.0.2",
     "espower-loader": "1.2.2",
     "jest": "25.1.0",
     "jest-pnp-resolver": "1.2.1",
