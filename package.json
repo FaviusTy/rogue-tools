@@ -6,7 +6,7 @@
     "@favi_ty/either": "1.0.0",
     "@favi_ty/private-fields": "1.0.0",
     "@favi_ty/range": "1.0.1",
-    "heap-js": "1.5.1"
+    "heap-js": "2.1.1"
   },
   "devDependencies": {
     "@babel/cli": "7.8.4",
