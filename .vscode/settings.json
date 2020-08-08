@@ -1,4 +1,5 @@
 {
   "javascript.validate.enable": false,
-  "typescript.tsdk": ".vscode/pnpify/typescript/lib"
+  "typescript.tsdk": ".vscode/pnpify/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
