@@ -31,7 +31,7 @@
     "power-assert": "1.6.1",
     "terser": "5.0.0",
     "typescript": "3.9.7",
-    "typesync": "0.7.0",
+    "typesync": "0.8.0",
     "utility-types": "3.10.0"
   },
   "keywords": [],
