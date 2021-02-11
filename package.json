@@ -30,7 +30,7 @@
     "microbundle": "0.12.3",
     "power-assert": "1.6.1",
     "terser": "5.0.0",
-    "typescript": "3.9.7",
+    "typescript": "3.9.9",
     "typesync": "0.7.0",
     "utility-types": "3.10.0"
   },
