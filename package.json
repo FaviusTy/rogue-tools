@@ -27,7 +27,7 @@
     "espower-loader": "1.2.2",
     "jest": "26.2.2",
     "jest-pnp-resolver": "1.2.2",
-    "microbundle": "0.12.3",
+    "microbundle": "0.13.3",
     "power-assert": "1.6.1",
     "terser": "5.0.0",
     "typescript": "3.9.7",
