@@ -1,4 +1,5 @@
 ### local settings.
+.history
 .rts2_cache_*
 dist/
 examples/game.js
