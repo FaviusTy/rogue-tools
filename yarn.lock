@@ -1437,10 +1437,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/heap@0.2.28":
-  version "0.2.28"
-  resolved "https://registry.yarnpkg.com/@types/heap/-/heap-0.2.28.tgz#c4247fae0e438c76ae05194c4b87cd5c4e859a7d"
-  integrity sha1-xCR/rg5DjHauBRlMS4fNXE6Fmn0=
+"@types/heap@0.2.34":
+  version "0.2.34"
+  resolved "https://registry.yarnpkg.com/@types/heap/-/heap-0.2.34.tgz#93df5b8bfffc4aea33b4c06c12e9caa5b16eeeeb"
+  integrity sha512-x9gp0NZnQeFrgrb6O3Tq5KtvsuEhWbc2vlHfs4cDOKcHsanzI39lIGcPdND/MRyaKUbxNgKXfKGCQGnjjOWweQ==
 
 "@types/http-cache-semantics@*":
   version "4.0.1"
