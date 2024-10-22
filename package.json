@@ -9,10 +9,10 @@
     "heap-js": "2.1.6"
   },
   "devDependencies": {
-    "@babel/cli": "7.15.4",
-    "@babel/core": "7.15.5",
-    "@babel/preset-env": "7.15.4",
-    "@babel/preset-typescript": "7.15.0",
+    "@babel/cli": "7.25.9",
+    "@babel/core": "7.25.9",
+    "@babel/preset-env": "7.25.9",
+    "@babel/preset-typescript": "7.25.9",
     "@favi_ty/babel-plugin-esm-url-resolver": "1.2.3",
     "@types/babel__core": "7.1.16",
     "@types/common-tags": "1.8.1",
