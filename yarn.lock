@@ -1555,7 +1555,7 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@yarnpkg/core@^2.1.0":
+"@yarnpkg/core@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@yarnpkg/core/-/core-2.4.0.tgz#b5d8cc7ee2ddb022816c7afa3f83c3ee3d317c80"
   integrity sha512-FYjcPNTfDfMKLFafQPt49EY28jnYC82Z2S7oMwLPUh144BL8v8YXzb4aCnFyi5nFC5h2kcrJfZh7+Pm/qvCqGw==
@@ -1592,7 +1592,7 @@
     tslib "^1.13.0"
     tunnel "^0.0.6"
 
-"@yarnpkg/fslib@^2.1.0", "@yarnpkg/fslib@^2.4.0", "@yarnpkg/fslib@^2.5.0":
+"@yarnpkg/fslib@^2.4.0", "@yarnpkg/fslib@^2.5.0":
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/@yarnpkg/fslib/-/fslib-2.5.2.tgz#6dcfbe12fe2d1bce14cb6e4518054abb1dd7c48d"
   integrity sha512-Tonb3jXsxsGB+uTlzG6r2zcAUekIG0FfCZV/kM14fPvTE3Z1wC0cMtiD4IUzxSqyhC/zR+T1pLaTPT3xDzSvqg==
@@ -1616,7 +1616,7 @@
     "@types/emscripten" "^1.38.0"
     tslib "^1.13.0"
 
-"@yarnpkg/parsers@^2.1.0", "@yarnpkg/parsers@^2.3.0":
+"@yarnpkg/parsers@^2.3.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@yarnpkg/parsers/-/parsers-2.4.0.tgz#5d092939022c96b256eaea461816ef2b7d77fa1b"
   integrity sha512-XWgiNGh4MkhdBTJVEbXEqzk66JKjvxTtKGeLPqo3rnJ7JiJnRaK2n9MLTKQB0uoRMWYzPlISdIlok6H9OdlOVQ==
@@ -1633,16 +1633,16 @@
     "@yarnpkg/fslib" "^2.4.0"
     tslib "^1.13.0"
 
-"@yarnpkg/pnpify@2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@yarnpkg/pnpify/-/pnpify-2.1.0.tgz#8f45bf061cc9ab8d1775e920adbbae9b51a54487"
-  integrity sha512-buB12zJqQwz+WiB0b05sJVbV+8hGjz/2P/6Bc4ZPC6GuQiQngMfZ7mwvwOPb3DO4xNSdINxzJU+tD5aBGHaOHA==
+"@yarnpkg/pnpify@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/@yarnpkg/pnpify/-/pnpify-2.4.0.tgz#4d016c5fb1b79e4ec5d373d5502c60426007d340"
+  integrity sha512-Ibu94L2jjgijPI3TjhJAv2RJdO1p/BVADM8H5kxTE6sCvRq0d1/mV7+lsc4hB/6jjzl3dckPHJiIaJoo4/aCBA==
   dependencies:
-    "@yarnpkg/core" "^2.1.0"
-    "@yarnpkg/fslib" "^2.1.0"
-    "@yarnpkg/parsers" "^2.1.0"
+    "@yarnpkg/core" "^2.4.0"
+    "@yarnpkg/fslib" "^2.4.0"
+    "@yarnpkg/parsers" "^2.3.0"
     chalk "^3.0.0"
-    clipanion "^2.4.2"
+    clipanion "^2.6.2"
     comment-json "^2.2.0"
     lodash "^4.17.15"
     tslib "^1.13.0"
@@ -2318,7 +2318,7 @@ cli-spinners@^2.5.0:
   resolved "https://registry.yarnpkg.com/cli-spinners/-/cli-spinners-2.6.0.tgz#36c7dc98fb6a9a76bd6238ec3f77e2425627e939"
   integrity sha512-t+4/y50K/+4xcCRosKkA7W4gTr1MySvLV0q+PxmG7FJ5g+66ChKurYjxBCjHggHH3HA5Hh9cy+lcUGWDqVH+4Q==
 
-clipanion@^2.4.2, clipanion@^2.6.2:
+clipanion@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/clipanion/-/clipanion-2.6.2.tgz#820e7440812052442455b248f927b187ed732f71"
   integrity sha512-0tOHJNMF9+4R3qcbBL+4IxLErpaYSYvzs10aXuECDbZdJOuJHdagJMAqvLdeaUQTI/o2uSCDRpet6ywDiKOAYw==
